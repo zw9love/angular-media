@@ -1,0 +1,82 @@
+<div class="container">
+  <!--一级导航-->
+  <div class="header_contain">
+    <header class="media_header">
+      <a href="javascript:;"><img src="../assets/img/nav.png" alt="" style="width:26px"></a>
+      <div class="media_header_info" id="wrapper">
+        <ul id="scroller">
+          <li *ngFor="let x of data;let id = index" (click)="firstClick(id)">
+            <a href="javascript:;" *ngIf="activeIndex == id" style="color:#e60012;font-size:18px">{{x}}</a>
+            <a href="javascript:;" *ngIf="activeIndex != id">{{x}}</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </div>
+
+  <!--二级导航-->
+  <div class="search_contain">
+    <div class="media_search">
+      <div></div>
+      <img src="../assets/img/search.png" alt="" style="height:22px;margin:0">
+      <span>&nbsp;搜索</span>
+    </div>
+  </div>
+
+  <!--主要内容-->
+  <section class="media_info">
+    <div class="main-data" *ngFor="let x of mainData">
+      <div class="main-cell" *ngFor="let y of x;let id = index">
+        <div *ngIf="id != 3">
+          <div class="media_info_contain">
+            <div class="media_info_left">
+              <a href="javascript:;">
+                <img src="../assets/img/p1.jpg" alt="">
+                <div class="media_info_movie">
+                  <span></span>
+                </div>
+              </a>
+            </div>
+            <div class="media_info_right">
+              <p class="p1"><a href="javascript:;">{{y.title}}</a></p>
+              <p class="p2">{{y.author}}</p>
+            </div>
+            <div class="media_info_icon">
+              <div class="media_info_eyes">
+                <img src="../assets/img/eyes.png" alt="">
+                <span>{{y.eye_num}}</span>
+              </div>
+              <div class="media_info_msg">
+                <img src="../assets/img/msg.png" alt="">
+                <span>{{y.msg_num}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div *ngIf="id == 3">
+          <div class="media_info_big have_movie">
+            <p><a href="javascript:;">{{y.title}}</a></p>
+            <a href="javascript:;" class="movie"><img src="../assets/img/b1.jpg" alt="">
+              <div class="media_info_movie">
+                <span></span>
+              </div>
+            </a>
+            <div class="media_info_icon">
+              <div class="media_info_eyes">
+                <img src="../assets/img/eyes.png" alt="">
+                <span>{{y.eye_num}}</span>
+              </div>
+              <div class="media_info_msg">
+                <img src="../assets/img/msg.png" alt="">
+                <span>{{y.msg_num}}</span>
+              </div>
+              <p>{{y.author}}</p>
+            </div>
+          </div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

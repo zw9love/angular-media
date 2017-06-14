@@ -1,0 +1,67 @@
+    /*修改订阅块的样式*/
+
+    .order_container{
+        margin-top:1.5rem;
+    }
+
+    .main_order{
+        margin-top:0px;
+    }
+
+    .main_order_info{
+        width:61.38%;
+        float: left;
+        position: absolute;
+        left:5.5rem;
+        top:50%;
+        transform:translateY(-50%);
+        -webkit-transform:translateY(-50%);
+    }
+
+    .main_order_info>p:first-child a{
+        color:#333;
+    }
+
+    .main_order_info>p:last-child{
+        width:100%;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        font-size: 1rem;
+        color:#707070;
+    }
+
+    
+    /*模态框*/
+    .modal{
+        width:26.04%;
+        padding-top:10.41%;
+        position:fixed;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+        background: rgba(41,43,44,0.6);
+        border-radius: 10px;
+        max-width: 200px;
+        z-index: 10000;
+        display:none;
+    }
+
+    .modal>div{
+        position: absolute;
+        width: 100%;
+        top:50%;
+        transform:translateY(-50%);
+        -webkit-transform:translateY(-50%);
+        font-size: 1.7rem;
+        color:#fff;
+        text-align: center;
+    }
+
+
+    @media (max-width: 414px){
+        .main_order_info{
+            width: 50%;
+        }
+    }
