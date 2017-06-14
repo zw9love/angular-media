@@ -1,0 +1,25 @@
+<div class="media_info_contain"  [ngClass]="{'have_movie': data.isMovie}">
+  <div class="media_info_left">
+    <a href="javascript:;">
+      <img src="../assets/img/p1.jpg" alt="">
+      <div class="media_info_movie">
+        <span></span>
+      </div>
+    </a>
+  </div>
+  <div class="media_info_right">
+    <p class="p1"><a href="javascript:;">{{data.title}}</a></p>
+    <p class="p2"><a href="javascript:;">{{data.author}}</a></p>
+  </div>
+  <div class="media_info_icon">
+    <div class="media_info_eyes">
+      <img src="../assets/img/eyes.png" alt="">
+      <span>{{data.eye_num}}</span>
+    </div>
+    <div class="media_info_msg">
+      <img src="../assets/img/msg.png" alt="">
+      <span>{{data.msg_num}}</span>
+    </div>
+  </div>
+</div>
+<div class="line"></div>

@@ -5,12 +5,16 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { Home } from '../pages/Home.component';
+import { Recommend } from '../components/Recommend.component';
+import { BigRecommend } from '../components/BigRecommend.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    Home
+    Home,
+    Recommend,
+    BigRecommend
   ],
   // 引入组件
   imports: [

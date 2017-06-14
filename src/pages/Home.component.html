@@ -27,53 +27,10 @@
     <div class="main-data" *ngFor="let x of mainData">
       <div class="main-cell" *ngFor="let y of x.list;let i = index">
         <div *ngIf="i != 3">
-          <div class="media_info_contain" #smallCell [ngClass]="{'have_movie': y.isMovie}">
-            <div class="media_info_left">
-              <a href="javascript:;">
-                <img src="../assets/img/p1.jpg" alt="">
-                <div class="media_info_movie">
-                  <span></span>
-                </div>
-              </a>
-            </div>
-            <div class="media_info_right">
-              <p class="p1"><a href="javascript:;">{{y.title}}</a></p>
-              <p class="p2"><a href="javascript:;">{{y.author}}</a></p>
-            </div>
-            <div class="media_info_icon">
-              <div class="media_info_eyes">
-                <img src="../assets/img/eyes.png" alt="">
-                <span>{{y.eye_num}}</span>
-              </div>
-              <div class="media_info_msg">
-                <img src="../assets/img/msg.png" alt="">
-                <span>{{y.msg_num}}</span>
-              </div>
-            </div>
-          </div>
-          <div class="line"></div>
+          <Recommend [data]="y" #smallCell></Recommend>
         </div>
         <div *ngIf="i == 3">
-          <div class="media_info_big" #bigCell [ngClass]="{'have_movie': y.isMovie}">
-            <p><a href="javascript:;">{{y.title}}</a></p>
-            <a href="javascript:;" class="movie"><img src="../assets/img/b1.jpg" alt="">
-              <div class="media_info_movie">
-                <span></span>
-              </div>
-            </a>
-            <div class="media_info_icon">
-              <div class="media_info_eyes">
-                <img src="../assets/img/eyes.png" alt="">
-                <span>{{y.eye_num}}</span>
-              </div>
-              <div class="media_info_msg">
-                <img src="../assets/img/msg.png" alt="">
-                <span>{{y.msg_num}}</span>
-              </div>
-              <p><a href="javascript:;">{{y.author}}</a></p>
-            </div>
-          </div>
-          <div class="line"></div>
+          <BigRecommend [data]="y" #bigCell></BigRecommend>
         </div>
       </div>
     </div>

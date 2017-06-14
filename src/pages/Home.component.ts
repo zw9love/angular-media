@@ -3,9 +3,9 @@ import Mock from 'mockjs'
 
 @Component({
   selector: 'Home',
-  templateUrl: 'Home.component.html',
+  templateUrl: './Home.component.html',
   // template: '<hero-form></hero-form>',
-  styleUrls: ['../assets/css/style_home_common.css', '../assets/css/style_recommend.css']
+  styleUrls: ['../assets/css/style_home_common.css','../assets/css/style_recommend.css']
 })
 
 export class Home {
