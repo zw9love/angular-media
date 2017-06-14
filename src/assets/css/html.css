@@ -26,5 +26,6 @@ body{
   box-sizing:border-box;
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
-  margin:0;
+  margin:0 auto;
+  max-width:600px;
 }

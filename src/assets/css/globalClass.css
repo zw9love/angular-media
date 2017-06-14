@@ -19,18 +19,24 @@
   -webkit-transition: all 0.8s ease 0s;
   overflow: hidden;
   max-width: 600px;
-  margin: 0 auto
+  margin: 0 auto;
+  left:0%;
 }
 
 div.go_contain {
   left: 70%;
-  transform: rotateY(-15deg);
-  -webkit-transform: rotateY(-15deg);
+  transform: rotateY(-8deg);
+  -webkit-transform: rotateY(-8deg);
+}
+
+div.go_aside {
+  left: 0!important;
+  opacity: 1!important;
 }
 
 div.go_shadow {
-  z-index: 1000;
-  opacity: 0.3;
+  z-index: 1000!important;
+  opacity: 0.3!important;
 }
 
 .line {

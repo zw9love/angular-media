@@ -1,8 +1,33 @@
-<div class="container">
+<!--侧边栏-->
+<div class="aside" [ngClass]="{'go_aside':asideActive}">
+  <div class="login_head">
+    <a href="javascript:;"><img src="../assets/img/login.png" alt=""></a>
+    <span><a href="javascript:;">点击登录</a></span>
+  </div>
+  <ul>
+    <div *ngFor="let x of asideData">
+      <a href="javascript:;">
+        <li>
+          <img [src]="x.src" alt="">
+          <span>{{x.name}}</span>
+        </li>
+      </a>
+      <div class="line"></div>
+    </div>
+  </ul>
+</div>
+
+
+<!--主要内容-->
+<div class="container" [ngClass]="{'go_contain':asideActive}">
+
+  <!--阴影块-->
+  <div class="contain_shadow" [ngClass]="{'go_shadow':asideActive}" (click)="showAside()"></div>
+
   <!--一级导航-->
   <div class="header_contain">
     <header class="media_header">
-      <a href="javascript:;"><img src="../assets/img/nav.png" alt="" ></a>
+      <a href="javascript:;" (click)="showAside()"><img src="../assets/img/nav.png" alt="" ></a>
       <div class="media_header_info" id="wrapper">
         <ul id="scroller">
           <li *ngFor="let x of data;let id = index" (click)="firstClick(id)">
@@ -22,7 +47,7 @@
     </div>
   </div>
 
-  <!--主要内容-->
+  <!--内容块-->
   <section class="media_info">
     <div class="main-data" *ngFor="let x of mainData">
       <div class="main-cell" *ngFor="let y of x.list;let i = index">
