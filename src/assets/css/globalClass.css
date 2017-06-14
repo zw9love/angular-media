@@ -1,0 +1,64 @@
+/*修改一级导航点击高亮字体*/
+
+.current{
+  color: #e60012!important;
+  font-size: 1.6rem!important;
+}
+
+/* body 3D变换的样式*/
+.body {
+  perspective: 600px;
+  -webkit-perspective: 600px;
+}
+
+/*最大的内容容器块*/
+
+.container {
+  position: relative;
+  transition: all 0.8s ease 0s;
+  -webkit-transition: all 0.8s ease 0s;
+  overflow: hidden;
+  max-width: 600px;
+  margin: 0 auto
+}
+
+div.go_contain {
+  left: 70%;
+  transform: rotateY(-15deg);
+  -webkit-transform: rotateY(-15deg);
+}
+
+div.go_shadow {
+  z-index: 1000;
+  opacity: 0.3;
+}
+
+.line {
+  height: 1px;
+  background: #e8e8e8;
+  margin: 1.5rem 0;
+}
+
+
+.noscroll {
+  overflow: hidden;
+}
+
+.scroller1 {
+  /*transition-timing-function:cubic-bezier(0.1, 0.57, 0.1, 1);*/
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-duration: 600ms;
+  -webkit-transition-duration: 600ms;
+  transition-property: all;
+  -webkit-transition-property: all;
+}
+
+.scroller2 {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-duration: 600ms;
+  -webkit-transition-duration: 600ms;
+  transition-property: all;
+  -webkit-transition-property: all;
+}

@@ -1,0 +1,30 @@
+*{
+  font-family: PingFang-Medium, PingFangSC-Regular, "Microsoft YaHei";
+  text-decoration: none;
+  color:#333;
+  word-wrap:break-word;
+  word-break:break-all;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+html{
+  font-size: 10px;
+  height: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust:none;
+  -ms-touch-action: none;
+  -webkit-touch-action: none;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body{
+  position: relative;
+  margin: 0 auto;
+  box-sizing:border-box;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  margin:0;
+}

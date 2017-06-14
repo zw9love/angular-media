@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ElementRef, ViewChild, AfterViewInit, OnInit} from '@angular/core';
+import Mock from 'mockjs'
 
 @Component({
   selector: 'Home',
@@ -12,21 +13,7 @@ export class Home {
     '推荐', '行业', '订阅', '时尚', '美妆', '教育', '推荐2', '行业2', '订阅2', '时尚2', '美妆2', '教育2',
     '推荐', '行业', '订阅', '时尚', '美妆', '教育', '推荐2', '行业2', '订阅2', '时尚2', '美妆2', '教育2'];
   activeIndex = 0;
-
-  mainData = [
-    [
-    {isMovie:false,title:'卡通人物客串super model 这样很Disney卡通人物客串super model 这样很Disney1',author:'时尚芭莎1',msg_num:100,eye_num:200},
-    {isMovie:true,title:'卡通人物客串super model 这样很Disney卡通人物客串super model 这样很Disney2',author:'时尚芭莎2',msg_num:666,eye_num:777},
-    {isMovie:false,title:'卡通人物客串super model 这样很Disney卡通人物客串super model 这样很Disney3',author:'时尚芭莎3',msg_num:888,eye_num:999},
-    {isMovie:false,title:'欧洲杯期间，穿的美美的看球才是正经事4',author:'时尚芭莎4',msg_num:200,eye_num:100}
-    ],
-    [
-      {isMovie:true,title:'卡通人物客串super model 这样很Disney卡通人物客串super model 这样很Disney5',author:'时尚芭莎5',msg_num:100,eye_num:200},
-      {isMovie:false,title:'卡通人物客串super model 这样很Disney卡通人物客串super model 这样很Disney6',author:'时尚芭莎6',msg_num:666,eye_num:777},
-      {isMovie:true,title:'卡通人物客串super model 这样很Disney卡通人物客串super model 这样很Disney7',author:'时尚芭莎7',msg_num:888,eye_num:999},
-      {isMovie:true,title:'欧洲杯期间，穿的美美的看球才是正经事8',author:'时尚芭莎8',msg_num:200,eye_num:100}
-    ],
-  ]
+  mainData: object;
 
   constructor() {
 
@@ -34,6 +21,50 @@ export class Home {
 
   firstClick(index) {
     this.activeIndex = index
+  }
+
+  @ViewChild('smallCell')
+  smallCellDiv: ElementRef;
+  @ViewChild('bigCell')
+  bigCellDiv: ElementRef;
+
+  // ngAfterViewInit这玩意就是事件
+  ngAfterViewInit() {
+    // 只能拿到一个
+    console.log(this.smallCellDiv)
+    console.log(this.bigCellDiv)
+
+    // this.smallCellDiv.nativeElement.style.backgroundColor = 'red';
+    // this.bigCellDiv.nativeElement.style.backgroundColor = 'red';
+  }
+
+  ngOnInit(){
+    /*
+      {
+       'title': '@ctitle(6,40)',
+       'author':'@cword(2,8)',
+       'msg_num|0-999':0,
+       'eye_num|0-999':0,
+       'isMovie':'@boolean',
+       },
+   */
+
+    this.mainData = Mock.mock({
+      'list|10': [{
+        'list|4':[
+          {
+            'title': '@ctitle(6,100)',
+            'author':'@cword(2,8)',
+            'msg_num|0-999':0,
+            'eye_num|0-999':0,
+            'isMovie':'@boolean',
+          },
+        ]
+      }],
+    }).list
+
+    // 输出结果
+    // console.log(JSON.stringify(this.mainData, null, 4))
   }
 
 }

@@ -4,7 +4,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   // template: '<hero-form></hero-form>',
-  styleUrls: ['../assets/css/cssreset-min.css','../assets/css/style_common.css']
+  // styleUrls: ['../assets/css/globalClass.css']
 })
 export class AppComponent {
 
