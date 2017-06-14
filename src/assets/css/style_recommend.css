@@ -65,7 +65,7 @@
 }
 
 .media_info_right > p.p1 {
-  margin-top: 1.5rem;
+  margin-top: 0px;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -83,7 +83,7 @@
 .media_info_right > p.p2 {
   font-size: 1rem;
   color: #aaa;
-  margin-top: 0.75rem;
+  margin-top: 10px;
 }
 
 .media_info_icon {

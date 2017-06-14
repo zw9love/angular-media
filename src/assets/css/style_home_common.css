@@ -160,7 +160,7 @@ header.media_header .media_header_info ul li a {
   transition: all 0.8s ease 0s;
   -webkit-transition: all 0.8s ease 0s;
   opacity: 0;
-  z-index:-1;
+  z-index:0;
 }
 
 /*.aside > a {*/
