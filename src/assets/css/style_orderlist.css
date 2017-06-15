@@ -34,8 +34,8 @@
 }
 
 .media_search div.add {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border: 1px solid #e92230;
   border-radius: 50%;
   position: absolute;
@@ -51,7 +51,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  width: 80%;
+  width: 60%;
   height: 1px;
   background: #e92230;
 }
@@ -63,7 +63,7 @@
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   width: 1px;
-  height: 80%;
+  height: 60%;
   background: #e92230;
 }
 
@@ -92,8 +92,7 @@
 }
 
 .main_order_info {
-  width: 61.38%;
-
+  width: calc(100% - 5.5rem)
 }
 
 .main_order_info > p:last-child {

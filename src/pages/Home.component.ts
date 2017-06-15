@@ -36,7 +36,10 @@ export class Home {
 
   // 一级菜单点击事件
   firstClick(index) {
+    if(this.activeIndex == index) return
     this.activeIndex = index
+    this.mainData = []
+    this.getData()
   }
 
   // 显示侧边栏

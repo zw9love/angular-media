@@ -19,7 +19,7 @@ export class MyOrder {
     let data = Mock.mock({
       'list|10': [{
         'src':'../assets/img/orderlogo.png',
-        'title':'@ctitle(6,20)',
+        'title':'@ctitle(6,50)',
         'num|0-99': 0,
         'author': '@cword(2,8)',
         'time':'@time("HH:mm")'
@@ -37,6 +37,7 @@ export class MyOrder {
   ngOnInit(){
     this.getData()
     myScroll($, this, 100)
+    // console.log(this)
   }
 
   //  当组件销毁的时候

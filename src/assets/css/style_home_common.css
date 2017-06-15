@@ -21,6 +21,16 @@
 
 .header_contain {
   border-bottom: 1px solid #e8e8e8;
+  position:fixed;
+  left:50%;
+  top:0;
+  transform:translateX(-50%);
+  -webkit-transform:translateX(-50%);
+  width:600px;
+  background: #fff;
+  z-index: 1;
+  padding: 0 1.2rem;
+  box-sizing: border-box;
 }
 
 header.media_header {
@@ -77,6 +87,10 @@ header.media_header .media_header_info ul li a {
 
 /*页面的搜索块的样式*/
 
+.search_contain{
+  margin-top: 6rem;
+}
+
 .media_search {
   margin-top: 1.5rem;
   height: 3rem;
@@ -84,6 +98,7 @@ header.media_header .media_header_info ul li a {
   position: relative;
   line-height: 3rem;
   cursor: pointer;
+
 }
 
 .media_search > div {
