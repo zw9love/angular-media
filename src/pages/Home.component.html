@@ -6,7 +6,7 @@
   </div>
   <ul>
     <div *ngFor="let x of asideData">
-      <a href="javascript:;">
+      <a href="javascript:;" [routerLink]="x.url">
         <li>
           <img [src]="x.src" alt="">
           <span>{{x.name}}</span>
@@ -31,7 +31,7 @@
       <div class="media_header_info" id="wrapper">
         <ul id="scroller">
           <li *ngFor="let x of data;let id = index" (click)="firstClick(id)">
-            <a href="javascript:;"  [ngClass]="{'current': activeIndex == id}">{{x}}</a>
+            <a href="javascript:;"  [ngClass]="{'current': activeIndex == id}">{{x.name}}</a>
           </li>
         </ul>
       </div>

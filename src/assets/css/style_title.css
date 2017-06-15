@@ -1,0 +1,27 @@
+
+.page_header {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.back {
+  height: 50px;
+}
+
+.back > img {
+  width: 30px;
+  display: inline-block;
+  margin: 10px 0 0 0;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.page-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  font-size: 1.8rem;
+}

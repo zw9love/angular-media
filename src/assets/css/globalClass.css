@@ -21,6 +21,7 @@
   max-width: 600px;
   margin: 0 auto;
   left:0%;
+  padding:0 1.2rem;
 }
 
 div.go_contain {
@@ -43,6 +44,13 @@ div.go_shadow {
   height: 1px;
   background: #e8e8e8;
   margin: 1.5rem 0;
+}
+
+/*说明块样式*/
+p {
+  font-size: 1rem;
+  color: #999;
+  margin-top: 10px;
 }
 
 

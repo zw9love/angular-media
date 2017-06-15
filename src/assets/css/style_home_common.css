@@ -18,9 +18,6 @@
 
 /*主页头部公共样式*/
 
-.header_contain, .search_contain {
-  padding: 0 1.2rem;
-}
 
 .header_contain {
   border-bottom: 1px solid #e8e8e8;
@@ -119,8 +116,6 @@ header.media_header .media_header_info ul li a {
 .media_info {
   margin-top: 1.5rem;
   box-sizing: border-box;
-  padding: 0 1.2rem;
-
 }
 
 

@@ -10,14 +10,12 @@ import $ from 'jquery'
 })
 
 export class Home {
-  data = ['推荐', '行业', '订阅', '时尚', '美妆', '教育', '推荐2', '行业2', '订阅2', '时尚2', '美妆2', '教育2',
-    '推荐', '行业', '订阅', '时尚', '美妆', '教育', '推荐2', '行业2', '订阅2', '时尚2', '美妆2', '教育2',
-    '推荐', '行业', '订阅', '时尚', '美妆', '教育', '推荐2', '行业2', '订阅2', '时尚2', '美妆2', '教育2'];
+  data = [];
   asideData = [
-    {src: '../assets/img/myorder.png', name: '我的订阅'},
-    {src: '../assets/img/star.png', name: '我的收藏'},
-    {src: '../assets/img/fix_msg.png', name: '我的评论'},
-    {src: '../assets/img/suggestion.png', name: '意见反馈'},
+    {src: '../assets/img/myorder.png', name: '我的订阅',url:'order'},
+    {src: '../assets/img/star.png', name: '我的收藏',url:'like'},
+    {src: '../assets/img/fix_msg.png', name: '我的评论',url:'comment'},
+    {src: '../assets/img/suggestion.png', name: '意见反馈',url:'sugguest'},
     {src: '../assets/img/quit.png', name: '退出'},
   ]
   activeIndex = 0;
@@ -104,6 +102,19 @@ export class Home {
   // 当Angular初始化完成数据绑定的输入属性后，用来初始化指令或者组件。
   ngOnInit() {
     this.getData()
+
+    this.data = Mock.mock({
+      'list|30': [{
+        'name':'@cword(2, 5)'
+      }],
+    }).list
+
+    // console.log(JSON.stringify(this.data, null, 4))
+  }
+
+  //  当组件销毁的时候
+  ngOnDestroy(){
+    $('body').removeClass('body')
   }
 
 }
