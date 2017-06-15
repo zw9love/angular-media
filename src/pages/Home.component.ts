@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output, ElementRef, ViewChild, AfterViewInit, OnInit} from '@angular/core';
 import Mock from 'mockjs'
 import $ from 'jquery'
+import {myScroll, unScroll} from '../tool/Scroll'
 
 @Component({
   selector: 'Home',
@@ -86,17 +87,8 @@ export class Home {
     // this.smallCellDiv.nativeElement.style.backgroundColor = 'red';
     // this.bigCellDiv.nativeElement.style.backgroundColor = 'red';
 
-    $(window).scroll(() => {
-      let sumHeight = $(document).height()
-      let clientHeight = $(window).height()
-      let scrollTop = $(window).scrollTop()
-      let n = (clientHeight + scrollTop) / sumHeight
-      if (n >= 0.95 && !this.lock) {
-        this.lock = true
-        if (this.mainData.length > 20) return
-        this.getData()
-      }
-    })
+    myScroll($, this, 20)
+
   }
 
   // 当Angular初始化完成数据绑定的输入属性后，用来初始化指令或者组件。
@@ -115,6 +107,7 @@ export class Home {
   //  当组件销毁的时候
   ngOnDestroy(){
     $('body').removeClass('body')
+    unScroll($)
   }
 
 }

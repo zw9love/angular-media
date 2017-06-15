@@ -1,3 +1,16 @@
 <div class="container">
   <MyTitle [title]="title" [active]="editActive"></MyTitle>
+  <div *ngFor="let x of mainData">
+    <div class="comment">
+      <div class="comment_left">
+        <div>
+          <span></span>
+        </div>
+      </div>
+      <div class="comment_right">
+        <Recommend [data]="x"></Recommend>
+      </div>
+
+    </div>
+  </div>
 </div>

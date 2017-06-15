@@ -28,6 +28,7 @@ div.go_contain {
   left: 70%;
   transform: rotateY(-8deg);
   -webkit-transform: rotateY(-8deg);
+  /*background-color:rgba(255,255,255,0.3)*/
 }
 
 div.go_aside {
@@ -40,6 +41,33 @@ div.go_shadow {
   opacity: 0.3!important;
 }
 
+
+/*已订阅*/
+
+.has_order {
+  right: auto !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  color: #999 !important;
+  width: 100%;
+}
+
+
+/*无订阅块*/
+
+p.no-data {
+  font-size: 1.2rem;
+  color: #999;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  display: none;
+}
+
 .line {
   height: 1px;
   background: #e8e8e8;
@@ -47,11 +75,11 @@ div.go_shadow {
 }
 
 /*说明块样式*/
-p {
-  font-size: 1rem;
-  color: #999;
-  margin-top: 10px;
-}
+/*p {*/
+  /*font-size: 1rem;*/
+  /*color: #999;*/
+  /*margin-top: 10px;*/
+/*}*/
 
 
 .noscroll {

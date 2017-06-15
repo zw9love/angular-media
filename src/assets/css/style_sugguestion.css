@@ -39,6 +39,10 @@
   border-radius: 10px;
 }
 
+.staff{
+  margin-top:1.5rem;
+}
+
 button.commit {
   display: block;
   width: 100%;
@@ -50,7 +54,7 @@ button.commit {
   background: #eeeeee;
   border-radius: 2rem;
   color: #999;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   cursor: pointer;
 }
 

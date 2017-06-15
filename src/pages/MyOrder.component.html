@@ -1,3 +1,31 @@
 <div class="container">
   <MyTitle [title]="title" ></MyTitle>
+  <div class="add_container">
+    <a href="javascript:;">
+      <div class="media_search">
+        <div class="bottom"></div>
+        <div class="big_add">
+          <div class="add">
+            <span></span>
+            <span></span>
+          </div>
+          <span>&nbsp;添加更多订阅号</span>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div *ngFor="let x of mainData">
+    <div class="main_order">
+      <a href="javascript:;"><img [src]="x.src" alt="">
+        <span class="num">{{x.num}}</span>
+      </a>
+
+      <div class="main_order_info">
+        <p><a href="javascript:;">{{x.author}}</a></p>
+        <p>{{x.title}}</p>
+      </div>
+      <span id="time">{{x.time}}</span>
+    </div>
+    <div class="line"></div>
+  </div>
 </div>
