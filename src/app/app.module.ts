@@ -7,6 +7,9 @@ import {RouterModule, Routes} from "@angular/router";
 import { AppComponent } from './app.component';
 import { Home } from '../pages/Home.component';
 import { Sugguestion } from '../pages/Sugguestion.component';
+import { MyComment } from '../pages/MyComment.component';
+import { MyLike } from '../pages/MyLike.component';
+import { MyOrder } from '../pages/MyOrder.component';
 import { Recommend } from '../components/Recommend.component';
 import { BigRecommend } from '../components/BigRecommend.component';
 import { MyTitle } from '../components/MyTitle.component';
@@ -14,7 +17,10 @@ import { MyTitle } from '../components/MyTitle.component';
 // 定义常量 路由
 const appRoutes:Routes = [
   {path: '', component: Home},
-  {path: 'sugguest', component: Sugguestion}
+  {path: 'sugguest', component: Sugguestion},
+  {path: 'myComment', component: MyComment},
+  {path: 'myLike', component: MyLike},
+  {path: 'myOrder', component: MyOrder},
 ];
 
 
@@ -25,7 +31,10 @@ const appRoutes:Routes = [
     Recommend,
     BigRecommend,
     Sugguestion,
-    MyTitle
+    MyTitle,
+    MyComment,
+    MyLike,
+    MyOrder,
   ],
   // 引入组件
   imports: [

@@ -12,9 +12,9 @@ import $ from 'jquery'
 export class Home {
   data = [];
   asideData = [
-    {src: '../assets/img/myorder.png', name: '我的订阅',url:'order'},
-    {src: '../assets/img/star.png', name: '我的收藏',url:'like'},
-    {src: '../assets/img/fix_msg.png', name: '我的评论',url:'comment'},
+    {src: '../assets/img/myorder.png', name: '我的订阅',url:'myOrder'},
+    {src: '../assets/img/star.png', name: '我的收藏',url:'myLike'},
+    {src: '../assets/img/fix_msg.png', name: '我的评论',url:'myComment'},
     {src: '../assets/img/suggestion.png', name: '意见反馈',url:'sugguest'},
     {src: '../assets/img/quit.png', name: '退出'},
   ]

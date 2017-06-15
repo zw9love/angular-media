@@ -8,8 +8,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 
 export class MyTitle implements OnInit{
-  @Input()
-  title:string
+  @Input() title:string = ''
+  @Input() active: boolean = false
 
   goBack(){
     this.router.navigate(['']);
