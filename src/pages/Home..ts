@@ -5,7 +5,7 @@ import {myScroll, unScroll} from '../tool/Scroll'
 
 @Component({
   selector: 'Home',
-  templateUrl: './Home.component.html',
+  templateUrl: 'Home.html',
   // template: '<hero-form></hero-form>',
   styleUrls: ['../assets/css/style_home_common.css']
 })

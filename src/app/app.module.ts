@@ -5,14 +5,16 @@ import { HttpModule } from '@angular/http';
 import {RouterModule, Routes} from "@angular/router";
 
 import { AppComponent } from './app.component';
-import { Home } from '../pages/Home.component';
-import { Sugguestion } from '../pages/Sugguestion.component';
-import { MyComment } from '../pages/MyComment.component';
-import { MyLike } from '../pages/MyLike.component';
-import { MyOrder } from '../pages/MyOrder.component';
-import { Recommend } from '../components/Recommend.component';
-import { BigRecommend } from '../components/BigRecommend.component';
-import { MyTitle } from '../components/MyTitle.component';
+import { Home } from '../pages/Home.';
+import { Sugguestion } from '../pages/Sugguestion';
+import { MyComment } from '../pages/MyComment';
+import { MyLike } from '../pages/MyLike';
+import { MyOrder } from '../pages/MyOrder';
+import { Show } from '../pages/Show';
+import { Recommend } from '../components/Recommend.';
+import { BigRecommend } from '../components/BigRecommend';
+import { MyTitle } from '../components/MyTitle';
+import { Comment } from '../components/Comment';
 
 // 定义常量 路由
 const appRoutes:Routes = [
@@ -21,6 +23,7 @@ const appRoutes:Routes = [
   {path: 'myComment', component: MyComment},
   {path: 'myLike', component: MyLike},
   {path: 'myOrder', component: MyOrder},
+  {path: 'show', component: Show},
 ];
 
 
@@ -35,6 +38,8 @@ const appRoutes:Routes = [
     MyComment,
     MyLike,
     MyOrder,
+    Show,
+    Comment
   ],
   // 引入组件
   imports: [

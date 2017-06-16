@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'MyTitle',
-  templateUrl: './MyTitle.component.html',
+  templateUrl: 'MyTitle.html',
   styleUrls: ['../assets/css/style_title.css']
 })
 

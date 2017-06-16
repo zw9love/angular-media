@@ -2,7 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'Recommend',
-  templateUrl: './Recommend.component.html',
+  templateUrl: 'Recommend.html',
   styleUrls: ['../assets/css/style_recommend.css']
 })
 

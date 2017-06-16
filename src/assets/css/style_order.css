@@ -32,6 +32,7 @@
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   height:100%;
+  width:calc(100% - 5.5rem);
 }
 
 .main_order_info > p:first-child a {
@@ -47,8 +48,8 @@
 }
 
 .main_order_select {
-  width: 100px;
-  height: 44px;
+  width: 60px;
+  height: 28px;
   border-radius: 23px;
   border: 1px solid #e92230;
   text-align: center;
@@ -65,9 +66,9 @@
 
 .main_order_select > .icon_add {
   position: absolute;
-  width: 16px;
-  height: 16px;
-  left: 22px;
+  width: 11px;
+  height: 11px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -96,10 +97,10 @@
 }
 
 .main_order_select > span {
-  font-size: 24px;
+  font-size: 12px;
   color: #e92230;
   position: absolute;
-  right: 22px;
+  right: 16px;
   top: 50%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);

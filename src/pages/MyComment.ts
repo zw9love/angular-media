@@ -2,7 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'MyComment',
-  templateUrl: './MyComment.component.html',
+  templateUrl: 'MyComment.html',
   // 自动隔开作用域 相当于vue里面的scoped
 })
 
