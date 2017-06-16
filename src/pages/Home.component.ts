@@ -24,6 +24,7 @@ export class Home {
   lock = false
   asideActive = false
   timer = null
+  asideStyle = {}
 
   constructor() {
 
@@ -44,13 +45,19 @@ export class Home {
 
   // 显示侧边栏
   showAside() {
+
+    let scrollTop = $(window).scrollTop()
+    this.asideStyle = {'top': scrollTop + 'px'}
+
     if (this.asideActive) {
       clearInterval(this.timer)
       this.timer = setTimeout(() => {
         $('body').removeClass('body')
+        $('html').removeClass('html')
       }, 800)
     } else {
       $('body').addClass('body')
+      $('html').addClass('html')
     }
     this.asideActive = !this.asideActive
   }
@@ -110,6 +117,7 @@ export class Home {
   //  当组件销毁的时候
   ngOnDestroy(){
     $('body').removeClass('body')
+    $('html').removeClass('html')
     unScroll($)
   }
 

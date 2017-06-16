@@ -5,10 +5,18 @@
   font-size: 1.6rem!important;
 }
 
-/* body 3D变换的样式*/
+
+
+/* html,body 3D变换的样式*/
+
+.html{
+  overflow: hidden;
+}
+
 .body {
   perspective: 600px;
   -webkit-perspective: 600px;
+  overflow: hidden;
 }
 
 /*最大的内容容器块*/
@@ -19,15 +27,15 @@
   -webkit-transition: all 0.8s ease 0s;
   overflow: hidden;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 61px auto 0 auto;
   left:0%;
   padding:0 1.2rem;
 }
 
 div.go_contain {
   left: 70%;
-  transform: rotateY(-8deg);
-  -webkit-transform: rotateY(-8deg);
+  transform: rotateY(-6deg);
+  -webkit-transform: rotateY(-6deg);
   /*background-color:rgba(255,255,255,0.3)*/
 }
 

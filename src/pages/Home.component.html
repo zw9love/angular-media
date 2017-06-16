@@ -1,5 +1,5 @@
 <!--侧边栏-->
-<div class="aside" [ngClass]="{'go_aside':asideActive}">
+<div class="aside" [ngClass]="{'go_aside':asideActive}" [ngStyle]="asideStyle">
   <div class="login_head">
     <a href="javascript:;"><img src="../assets/img/login.png" alt=""></a>
     <span><a href="javascript:;">点击登录</a></span>
@@ -19,7 +19,7 @@
 
 
 <!--主要内容-->
-<div class="container" [ngClass]="{'go_contain':asideActive}">
+<div class="container" [ngClass]="{'go_contain':asideActive}" style="margin:0 auto">
 
   <!--阴影块-->
   <div class="contain_shadow" [ngClass]="{'go_shadow':asideActive}" (click)="showAside()"></div>

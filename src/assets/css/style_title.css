@@ -1,12 +1,22 @@
 
 .page_header {
-  position: relative;
-  margin: 10px 0;
+  position: fixed;
+  padding: 5px 0;
   border-bottom: 1px solid #e8e8e8;
+  height:50px;
+  max-width: 600px;
+  width:100%;
+  background-color:#fff;
+  z-index: 1;
+  left:50%;
+  top:0;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 
 .back {
   height: 50px;
+  padding:0 1.2rem;
 }
 
 .back > img {

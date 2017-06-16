@@ -162,7 +162,7 @@ header.media_header .media_header_info ul li a {
 .aside {
   width: 70%;
   background: #fff;
-  position: absolute;
+  position: fixed;
   left: -70%;
   top: 0;
   padding-left: 1.2rem;
