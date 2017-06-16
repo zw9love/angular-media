@@ -61,11 +61,11 @@
   line-height: 2rem;
 }
 
-.main_comment_owner > p.more {
+.main_comment_owner  p.more {
   text-align: center;
 }
 
-.main_comment_owner > p a {
+.main_comment_owner  p a {
   font-size: 1.2rem;
   color: #70b9f0;
 

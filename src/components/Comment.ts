@@ -4,22 +4,32 @@ import {ActivatedRoute, Router} from "@angular/router";
 @Component({
   selector: 'Comment',
   templateUrl: './Comment.html',
-  styleUrls: ['../assets/css/style_order.css','../assets/css/style_comment.css']
+  styleUrls: ['../assets/css/style_order.css', '../assets/css/style_comment.css']
 })
 
-export class Comment implements OnInit{
-  @Input() title:string = ''
-  @Input() active: boolean = false
+export class Comment implements OnInit {
+  @Input() data: object
+  renderData = []
+  length = 0
 
-  goBack(){
+  goBack() {
     this.router.navigate(['']);
   }
 
-  constructor(public route:ActivatedRoute, private router: Router){
+  constructor(public route: ActivatedRoute, private router: Router) {
 
   }
 
   ngOnInit() {
-    // console.log(this.title)
+    this.renderData = this.data['data'].slice(0, 5)
+    this.length = this.data['data'].length
+    // console.log(this.renderData)
   }
+
+  more() {
+    this.renderData = this.data['data']
+    this.length = 0
+    // console.log(this.data['data'])
+  }
+
 }

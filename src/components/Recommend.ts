@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'Recommend',
@@ -12,5 +13,13 @@ export class Recommend  implements OnInit {
 
   ngOnInit() {
     //console.log(this.data);    // 父组件内传入的值或者我们自己设置的初始值0
+  }
+
+  constructor(public route:ActivatedRoute, private router: Router){
+
+  }
+
+  jump(){
+    this.router.navigate(['show']);
   }
 }

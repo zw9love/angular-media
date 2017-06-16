@@ -16,7 +16,7 @@ export class MyLike {
   mainData = []
   lock = false
 
-  // 模拟数据
+  // 模拟数据（瀑布流）
   getData() {
     let data = Mock.mock({
       'list|10': [{

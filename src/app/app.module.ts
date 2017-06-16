@@ -5,13 +5,13 @@ import { HttpModule } from '@angular/http';
 import {RouterModule, Routes} from "@angular/router";
 
 import { AppComponent } from './app.component';
-import { Home } from '../pages/Home.';
+import { Home } from '../pages/Home';
 import { Sugguestion } from '../pages/Sugguestion';
 import { MyComment } from '../pages/MyComment';
 import { MyLike } from '../pages/MyLike';
 import { MyOrder } from '../pages/MyOrder';
 import { Show } from '../pages/Show';
-import { Recommend } from '../components/Recommend.';
+import { Recommend } from '../components/Recommend';
 import { BigRecommend } from '../components/BigRecommend';
 import { MyTitle } from '../components/MyTitle';
 import { Comment } from '../components/Comment';

@@ -62,7 +62,7 @@ export class Home {
     this.asideActive = !this.asideActive
   }
 
-  // 模拟数据
+  // 模拟数据（瀑布流）
   getData() {
     let data = Mock.mock({
       'list|3': [{

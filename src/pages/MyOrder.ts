@@ -15,6 +15,7 @@ export class MyOrder {
   mainData = []
   lock = false
 
+  // （瀑布流）
   getData(){
     let data = Mock.mock({
       'list|10': [{

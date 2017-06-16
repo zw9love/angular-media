@@ -114,14 +114,15 @@
 }
 
 .media_info_icon .media_info_eyes > img, .media_info_icon .media_info_msg > img  {
-  height:14px;
+  height:16px;
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
 }
 
 .media_info_icon .media_info_eyes > img{
-  width:20px
+  width:22px;
+  height:14px;
 }
 
 .media_info_icon span{

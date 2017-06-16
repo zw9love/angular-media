@@ -2,23 +2,40 @@
   <div class="main_order main_admin">
     <a href="javascript:;"><img src="../assets/img/order.png" alt=""></a>
     <div class="main_order_info">
-      <p><a href="javascript:;">张小二</a></p>
-      <p>1个小时前</p>
+      <p><a href="javascript:;">{{data.author}}</a></p>
+      <p>{{data.time}}</p>
     </div>
     <div class="main_comment">
       <div class="main_comment_contain">
-        <span>50</span>
+        <span>{{data.msg_num}}</span>
         <img src="../assets/img/msg.png" alt="">
       </div>
       <div class="main_comment_contain">
-        <span>331</span>
+        <span>{{data.like_num}}</span>
         <img src="../assets/img/like.png" alt="">
       </div>
     </div>
   </div>
   <div class="main_comment_msg">
     <div class="main_comment_owner">
-      <p>天啊撸，为什么这套真丝“睡袍”套装穿她身上会这么仙美 贵族气！蓝色和桃粉色玫瑰印花飘散着甜美气息。</p>
+      <p>{{data.title}}</p>
+      <div [hidden]="data.data.length == 0">
+        <div class="line"></div>
+        <div class="main_comment_other" >
+          <p *ngFor="let x of renderData;let i = index"><span class="main_comment_name"><a href="javascript:;">{{x.name1}} </a></span>回复<span class="main_comment_name"><a href="javascript:;"> {{x.name2}}:</a></span>{{x.info}}</p>
+
+          <!--<p><span class="main_comment_name"><a href="javascript:;">一点咨询网友:</a></span>-->
+            <!--这里都是游戏暗卫的名字还剩多少钱十年间耗时间节省时间。</p>-->
+          <!--<p><span class="main_comment_name"><a href="javascript:;">张小二 </a></span>回复<span class="main_comment_name"><a href="javascript:;"> 一点咨询网友:</a></span>-->
+            <!--京门京门回到家华盛顿</p>-->
+          <!--<p><span class="main_comment_name"><a href="javascript:;">青衫衣旧 </a></span>回复<span class="main_comment_name"><a href="javascript:;"> 一点咨询网友:</a></span>-->
+            <!--胡亥他哥就叫长安</p>-->
+          <!--<p><span class="main_comment_name"><a href="javascript:;">U49625589:</a></span>-->
+            <!--扶苏不死，大秦不亡</p>-->
+        </div>
+        <p class="more" [hidden]="length <= 5" (click)="more()"><a href="javascript:;">展开更多回复</a></p>
+        <div class="line"></div>
+      </div>
     </div>
   </div>
 </div>

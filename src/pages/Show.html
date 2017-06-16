@@ -95,33 +95,7 @@
       <!--</div>-->
     <!--</div>-->
 
-    <!--<div class="main_contain">-->
-      <!--<div class="main_order main_admin">-->
-        <!--<a href="javascript:;"><img src="../assets/img/order.png" alt=""></a>-->
-        <!--<div class="main_order_info">-->
-          <!--<p><a href="javascript:;">张小二</a></p>-->
-          <!--<p>25分钟前</p>-->
-        <!--</div>-->
-        <!--<div class="main_comment">-->
-          <!--<div class="main_comment_contain">-->
-            <!--<span>50</span>-->
-            <!--<img src="../assets/img/msg.png" alt="">-->
-          <!--</div>-->
-          <!--<div class="main_comment_contain">-->
-            <!--<span>331</span>-->
-            <!--<img src="../assets/img/like.png" alt="">-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="main_comment_msg">-->
-        <!--<div class="main_comment_owner">-->
-          <!--<p>天啊撸，为什么这套真丝“睡袍”套装穿她身上会这么仙美 贵族气！蓝色和桃粉色玫瑰印花飘散着甜美气息。</p>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-    <Comment></Comment>
-    <Comment></Comment>
-    <Comment></Comment>
+    <Comment [data]="x" *ngFor="let x of mainData;let i = index"></Comment>
   </div>
 
   <!-- <div class="loading">

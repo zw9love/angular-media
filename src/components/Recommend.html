@@ -1,14 +1,14 @@
 <div class="media_info_contain"  [ngClass]="{'have_movie': data.isMovie}">
   <div class="media_info_left">
     <a href="javascript:;">
-      <img src="../assets/img/p1.jpg" alt="">
+      <img src="../assets/img/p1.jpg" alt="" (click)="jump()" >
       <div class="media_info_movie">
         <span></span>
       </div>
     </a>
   </div>
   <div class="media_info_right">
-    <p class="p1"><a href="javascript:;">{{data.title}}</a></p>
+    <p class="p1" (click)="jump()"><a href="javascript:;">{{data.title}}</a></p>
     <p class="p2"><a href="javascript:;">#{{data.author}}</a></p>
   </div>
   <div class="media_info_icon">

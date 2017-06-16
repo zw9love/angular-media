@@ -1,6 +1,6 @@
 <div class="media_info_big"  [ngClass]="{'have_movie': data.isMovie}">
-  <p><a href="javascript:;">{{data.title}}</a></p>
-  <a href="javascript:;" class="movie"><img src="../assets/img/b1.jpg" alt="">
+  <p (click)="jump()"><a href="javascript:;">{{data.title}}</a></p>
+  <a href="javascript:;" class="movie"><img src="../assets/img/b1.jpg" alt="" (click)="jump()">
     <div class="media_info_movie">
       <span></span>
     </div>
