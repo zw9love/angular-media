@@ -1,38 +1,41 @@
 <section class="main">
-  <p class="main_title">零售商们致力于将双十一打造成奢侈品的黑色星期五</p>
+  <p class="main_title">{{showData['title']}}</p>
+  <!--订阅块-->
   <div class="main_order main_sp">
     <a href="javascript:;"><img src="../assets/img/order.png" alt=""></a>
     <div class="main_order_info">
-      <p><a href="javascript:;">时尚芭莎</a></p>
-      <p>2016-07-04</p>
+      <p><a href="javascript:;">{{showData['author']}}</a></p>
+      <p>{{showData['time']}}</p>
     </div>
-    <a href="javascript:;"><div class="main_order_select" orderFlag="true">
-      <div class="icon_add">
-        <span></span>
-        <span></span>
-      </div>
-      <span>&nbsp;订阅</span>
-    </div></a>
+    <OrderCell [orderActive]="showData['isOrder']"></OrderCell>
   </div>
   <div class="line"></div>
-  <div class="main_info">
-    <p>每到夏季就会让我们不由自主的去选择白色的服装，因为白色不仅好看，也是最不吸热的颜色。我们也为了找寻这样的答案而寻找出了十位时尚</p>
-    <div class="main_info_img">
-      <img src="../assets/img/show_1.jpg" alt="">
-    </div>
-    <p>每到夏季就会让我们不由自主的去选择白色的服装，因为白色不仅好看，也是最不吸热的颜色。我们也为了找寻这样的答案而寻找出了十位时尚</p>
-    <div class="main_info_img">
-      <img src="../assets/img/show_2.jpg" alt="">
-    </div>
-    <p>每到夏季就会让我们不由自主的去选择白色的服装，因为白色不仅好看，也是最不吸热的颜色。我们也为了找寻这样的答案而寻找出了十位时尚</p>
-    <div class="main_info_img">
-      <img src="../assets/img/show_3.jpg" alt="">
-    </div>
-    <p>每到夏季就会让我们不由自主的去选择白色的服装，因为白色不仅好看，也是最不吸热的颜色。我们也为了找寻这样的答案而寻找出了十位时尚</p>
+  <!--电影块-->
+  <div class="movie" [hidden]="!showData['isMovie']">
+    <video src="../assets/video/go.mp4"  id="video" ></video>
+    <img src="../assets/img/movie.jpg" alt="">
+    <a href="javascript:;">
+      <div class="media_info_movie">
+        <span></span>
+      </div>
+    </a>
+    <div class="line"></div>
   </div>
-  <p class="read_all">
-    <a href="">阅读原文</a>
-  </p>
+  <!--文章块-->
+  <div [hidden]="showData['isMovie']">
+    <div class="main_info">
+      <div *ngFor="let x of showData['infoData'];let i = index">
+        <p [hidden]="!x.info">{{x.info}}</p>
+        <div class="main_info_img" [hidden]="!x.src">
+          <img [src]="x.src" alt="">
+        </div>
+      </div>
+    </div>
+    <p class="read_all">
+      <a href="javascript:;">阅读原文</a>
+    </p>
+  </div>
+
   <div class="main_share">
     <ul>
       <span>分享:</span>
@@ -42,7 +45,6 @@
       <li><a href="javascript:;"><img src="../assets/img/share_wechat.png" alt=""></a></li>
       <li><a href="javascript:;"><img src="../assets/img/share_weibo.png" alt=""></a></li>
       <li><a href="javascript:;"><img src="../assets/img/share_zone.png" alt=""></a></li>
-
     </ul>
   </div>
   <div class="line"></div>
@@ -56,45 +58,6 @@
     热门评论
   </p>
   <div class="container" style="margin:0">
-    <!--<div class="main_contain">-->
-      <!--<div class="main_order main_admin">-->
-        <!--<a href="javascript:;"><img src="../assets/img/order.png" alt=""></a>-->
-        <!--<div class="main_order_info">-->
-          <!--<p><a href="javascript:;">张小二</a></p>-->
-          <!--<p>刚刚</p>-->
-        <!--</div>-->
-        <!--<div class="main_comment">-->
-          <!--<div class="main_comment_contain">-->
-            <!--<span>50</span>-->
-            <!--<img src="../assets/img/msg.png" alt="">-->
-          <!--</div>-->
-          <!--<div class="main_comment_contain">-->
-            <!--<span>331</span>-->
-            <!--<img src="../assets/img/like.png" alt="">-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="main_comment_msg">-->
-        <!--<div class="main_comment_owner">-->
-          <!--<p>天啊撸，为什么这套真丝“睡袍”套装穿她身上会这么仙美 贵族气！蓝色和桃粉色玫瑰印花飘散着甜美气息。</p>-->
-
-          <!--<div class="line"></div>-->
-          <!--<div class="main_comment_other">-->
-            <!--<p><span class="main_comment_name"><a href="javascript:;">一点咨询网友:</a></span>-->
-              <!--这里都是游戏暗卫的名字还剩多少钱十年间耗时间节省时间。</p>-->
-            <!--<p><span class="main_comment_name"><a href="javascript:;">张小二 </a></span>回复<span class="main_comment_name"><a href="javascript:;"> 一点咨询网友:</a></span>-->
-              <!--京门京门回到家华盛顿</p>-->
-            <!--<p><span class="main_comment_name"><a href="javascript:;">青衫衣旧 </a></span>回复<span class="main_comment_name"><a href="javascript:;"> 一点咨询网友:</a></span>-->
-              <!--胡亥他哥就叫长安</p>-->
-            <!--<p><span class="main_comment_name"><a href="javascript:;">U49625589:</a></span>-->
-              <!--扶苏不死，大秦不亡</p>-->
-          <!--</div>-->
-          <!--<p class="more"><a href="javascript:;">展开更多回复</a></p>-->
-          <!--<div class="line"></div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-
     <Comment [data]="x" *ngFor="let x of mainData;let i = index"></Comment>
   </div>
 

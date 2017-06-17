@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'MyTitle',
@@ -12,10 +13,10 @@ export class MyTitle implements OnInit{
   @Input() active: boolean = false
 
   goBack(){
-    this.router.navigate(['']);
+    this.location.back();
   }
 
-  constructor(public route:ActivatedRoute, private router: Router){
+  constructor(public route:ActivatedRoute, private router: Router,private location: Location){
 
   }
 

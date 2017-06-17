@@ -73,6 +73,7 @@ export class Home {
             'msg_num|0-999': 0,
             'eye_num|0-999': 0,
             'isMovie': '@boolean',
+            'id':'@id'
           },
         ]
       }],
@@ -91,8 +92,8 @@ export class Home {
   // 在Angular创建完组件的视图后调用。
   ngAfterViewInit() {
     // 只能拿到一个
-    console.log(this.smallCellDiv)
-    console.log(this.bigCellDiv)
+    // console.log(this.smallCellDiv)
+    // console.log(this.bigCellDiv)
 
     // this.smallCellDiv.nativeElement.style.backgroundColor = 'red';
     // this.bigCellDiv.nativeElement.style.backgroundColor = 'red';

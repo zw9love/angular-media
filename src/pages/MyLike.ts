@@ -25,6 +25,7 @@ export class MyLike {
         'msg_num|0-999': 0,
         'eye_num|0-999': 0,
         'isMovie': '@boolean',
+        'id':'@id'
       }],
     }).list
 

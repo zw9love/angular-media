@@ -58,11 +58,12 @@
 .main_comment_owner > p {
   /*text-align: center;*/
   margin-top: 1.5rem;
-  line-height: 2rem;
+  line-height: 20px;
 }
 
 .main_comment_owner  p.more {
   text-align: center;
+  margin-top: 10px;
 }
 
 .main_comment_owner  p a {
@@ -78,7 +79,7 @@
 .main_comment_other > p {
   font-size: 1.2rem;
   color: #333;
-  line-height: 50px;
+  line-height: 30px;
 }
 
 .main_comment_other span.main_comment_name a {
