@@ -68,12 +68,19 @@ export class Home {
       'list|3': [{
         'list|4': [
           {
-            'title': '@ctitle(6,100)',
+            'id':'@id',
+            'title': '@ctitle(6,50)',
             'author': '@cword(2,8)',
             'msg_num|0-999': 0,
             'eye_num|0-999': 0,
             'isMovie': '@boolean',
-            'id':'@id'
+            'isOrder': '@boolean',
+            'time':'@datetime("yyyy-MM-dd")',
+            'src':'../assets/img/order.png',
+            'infoData|1-5':[{
+              'info':'@cparagraph()',
+              'src':'../assets/img/show_'+ '@integer(1, 3)' +'.jpg'
+            }]
           },
         ]
       }],

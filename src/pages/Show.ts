@@ -1,8 +1,13 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {Store} from '@ngrx/store';
 import Mock from 'mockjs'
 import $ from 'jquery'
 import {myScroll, unScroll} from '../tool/Scroll'
+
+interface AppState {
+  // showData: object;
+}
 
 @Component({
   selector: 'Show',
@@ -17,7 +22,7 @@ export class Show {
   mainData = []
   showData = []
 
-  constructor(public route: ActivatedRoute, private router: Router) {
+  constructor(public route: ActivatedRoute, private router: Router, private store: Store<AppState>) {
 
   }
 
@@ -37,20 +42,9 @@ export class Show {
 
   // 获取每个页面的showData
   getShowData(){
-    this.showData = Mock.mock({
-        'title': '@ctitle(6,30)',
-        'author': '@cword(2,8)',
-        'isMovie': '@boolean',
-        'isOrder': '@boolean',
-        'time':'@datetime("yyyy-MM-dd")',
-        'src':'../assets/img/order.png',
-        'infoData|1-5':[{
-          'info':'@cparagraph()',
-          'src':'../assets/img/show_'+ '@integer(1, 3)' +'.jpg'
-        }]
-    })
 
-    // console.log(JSON.stringify(this.showData, null, 4))
+    this.showData = this.store['source']['value']['show']
+
   }
 
   // 获取评论块数据（瀑布流）
@@ -86,7 +80,7 @@ export class Show {
     myScroll($, this, 30)
     // 每次组件加载完成，回到顶部
     $(window).scrollTop(0)
-    console.log(this['providers'])
+    console.log(this.store['source']['value']['show'])
   }
 
   // 当组件销毁的时候

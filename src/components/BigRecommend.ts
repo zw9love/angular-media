@@ -1,5 +1,11 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs/Observable';
+
+interface AppState {
+  showData: object;
+}
 
 @Component({
   selector: 'BigRecommend',
@@ -16,11 +22,15 @@ export class BigRecommend  implements OnInit {
 
   }
 
-  constructor(public route:ActivatedRoute, private router: Router){
+  showData: object;
 
+  constructor(public route:ActivatedRoute, private router: Router, private store: Store<AppState>){
+    this.showData = store.select('show');
   }
 
   jump(){
+    let action ={type: 'setShowData',value:this.data}
+    this.store.dispatch(action);
     this.router.navigate(['show']);
   }
 }

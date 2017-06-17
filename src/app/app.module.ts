@@ -3,7 +3,9 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from "@angular/router";
-import {createStore} from 'redux';
+// import {createStore} from 'redux';
+import { StoreModule } from '@ngrx/store';
+import { showReducer } from '../store/show';
 
 import {AppComponent} from './app.component';
 import {Home} from '../pages/Home';
@@ -25,24 +27,10 @@ const appRoutes: Routes = [
   {path: 'myComment', component: MyComment},
   {path: 'myLike', component: MyLike},
   {path: 'myOrder', component: MyOrder},
-  {path: 'show/:id', component: Show},
+  {path: 'show', component: Show},
+  // {path: 'show/:id', component: Show},
 ];
 
-const reducer = (state = 0, action) => {
-
-  let {type, value} = action
-
-  switch (type) {
-    case 'sendRecommend':
-      return value;
-    default:
-      return state;
-  }
-};
-
-const store = createStore(reducer);
-
-// console.log(store)
 
 
 @NgModule({
@@ -66,11 +54,12 @@ const store = createStore(reducer);
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    StoreModule.provideStore({ show: showReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  store = store
+
 }
