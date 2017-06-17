@@ -30,7 +30,7 @@ export class BigRecommend  implements OnInit {
 
   jump(){
     let action ={type: 'setShowData',value:this.data}
-    this.store.dispatch(action);
-    this.router.navigate(['show']);
+    this.store.dispatch(action)
+    this.router.navigate(['show',this.data['id']])
   }
 }

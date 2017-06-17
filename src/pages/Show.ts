@@ -42,9 +42,8 @@ export class Show {
 
   // 获取每个页面的showData
   getShowData(){
-
+    // 讲道理，应该是根据show页面的id来拿数据的
     this.showData = this.store['source']['value']['show']
-
   }
 
   // 获取评论块数据（瀑布流）

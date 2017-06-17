@@ -30,9 +30,8 @@ export class Recommend implements OnInit {
 
   jump() {
     let action ={type: 'setShowData',value:this.data}
-    this.store.dispatch(action);
-    this.router.navigate(['show']);
-    // this.router.navigate(['show',this.data['id']]);
+    this.store.dispatch(action)
+    this.router.navigate(['show',this.data['id']])
     // console.log(this.store['source']['value'])
   }
 }

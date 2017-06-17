@@ -1,9 +1,5 @@
 import { ActionReducer, Action } from '@ngrx/store';
 
-// export const INCREMENT = 'INCREMENT';
-// export const DECREMENT = 'DECREMENT';
-// export const RESET = 'RESET';
-
 export function showReducer(state = 0, action){
 
   let {type, value} = action

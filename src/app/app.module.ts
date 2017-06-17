@@ -27,8 +27,7 @@ const appRoutes: Routes = [
   {path: 'myComment', component: MyComment},
   {path: 'myLike', component: MyLike},
   {path: 'myOrder', component: MyOrder},
-  {path: 'show', component: Show},
-  // {path: 'show/:id', component: Show},
+  {path: 'show/:id', component: Show},
 ];
 
 
