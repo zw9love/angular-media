@@ -2,6 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Store} from '@ngrx/store';
 import Mock from 'mockjs'
+import { Location } from '@angular/common';
 import $ from 'jquery'
 import {myScroll, unScroll} from '../tool/Scroll'
 
@@ -21,8 +22,13 @@ export class Show {
   recommendData = []
   mainData = []
   showData = []
+  shareActive = false
+  shadowActive = false
+  textActive = false
+  starActive = false
+  myComment = ''
 
-  constructor(public route: ActivatedRoute, private router: Router, private store: Store<AppState>) {
+  constructor(public route: ActivatedRoute, private router: Router, private store: Store<AppState>,private location: Location) {
 
   }
 
@@ -40,6 +46,60 @@ export class Show {
     }).list
   }
 
+  // 点击返回
+  goBack(){
+    this.location.back();
+  }
+
+  // 点击收藏
+  starClick(){
+    this.starActive = !this.starActive
+    let mask = this.store['source']['value']['mask']
+    mask.msg = this.starActive ? '已添加收藏' : '已取消收藏'
+    mask.toggleActive()
+  }
+
+  // 点击发表评论
+  textClick(){
+    this.myComment = ''
+    this.shadowActive = true
+    this.textActive = true
+  }
+
+  // 取消发表
+  cancelText(){
+    this.shadowActive = false
+    this.textActive = false
+  }
+
+  // 确定发表
+  sureText(){
+    this.cancelText()
+    let data = {
+      'title': this.myComment,
+      'author': '旺仔小牛奶',
+      'msg_num': 0,
+      'like_num': 0,
+      'time': '刚刚',
+      // 评论的条数
+      'data': []
+    }
+
+    this.mainData.push(data)
+  }
+
+  // 点击分享
+  shareClick(){
+    this.shadowActive = true
+    this.shareActive = true
+  }
+
+  // 取消分享
+  cancel(){
+    this.shadowActive = false
+    this.shareActive = false
+  }
+
   // 获取每个页面的showData
   getShowData(){
     // 讲道理，应该是根据show页面的id来拿数据的
@@ -54,7 +114,7 @@ export class Show {
         'author': '@cword(2,8)',
         'msg_num|0-999': 0,
         'like_num|0-999': 0,
-        'time|': '@integer(1, 24)' + '小时之前',
+        'time': '@integer(1, 24)' + '小时之前',
         // 评论的条数
         'data|0-20': [{
           'name1': '@cname(0,4)',

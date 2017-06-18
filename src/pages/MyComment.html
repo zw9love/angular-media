@@ -1,3 +1,20 @@
+<MyTitle [title]="title" [active]="titleEdit" [parent]="sendSelf()"></MyTitle>
+<Shadow [title]="quitTitle" [fn]="sureFn" [parent]="sendSelf()" ></Shadow>
+<div class="no_comment" *ngIf="mainData.length == 0">
+  <p>暂无评论内容</p>
+</div>
 <div class="container">
-  <MyTitle [title]="title" [active]="editActive"></MyTitle>
+  <div *ngFor="let x of mainData;let i = index" [ngClass]="{'isFirst':i == 0}">
+    <div class="comment">
+      <div class="comment_left" [hidden]="!editActive" (click)="editClick(i)">
+        <div>
+          <span></span>
+        </div>
+      </div>
+      <div class="comment_right">
+        <Comment [data]="x"></Comment>
+      </div>
+
+    </div>
+  </div>
 </div>

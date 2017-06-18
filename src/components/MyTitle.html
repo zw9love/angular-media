@@ -1,7 +1,7 @@
 <div class="page_header">
-  <div class="back" (click)="goBack()">
-    <img src="../assets/img/back.png" alt="">
+  <div class="back">
+    <img src="../assets/img/back.png" alt="" (click)="goBack()">
   </div>
   <span class="page-title">{{title}}</span>
-  <span class="page-edit" [hidden]="!active">编辑</span>
+  <span class="page-edit" [hidden]="!active" (click)="edit()">{{str}}</span>
 </div>

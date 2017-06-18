@@ -4,8 +4,10 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from "@angular/router";
 // import {createStore} from 'redux';
-import { StoreModule } from '@ngrx/store';
-import { showReducer } from '../store/show';
+import {StoreModule} from '@ngrx/store';
+import {showReducer} from '../store/show';
+import {shadowReducer} from '../store/shadow';
+import {maskReducer} from '../store/mask';
 
 import {AppComponent} from './app.component';
 import {Home} from '../pages/Home';
@@ -19,6 +21,8 @@ import {BigRecommend} from '../components/BigRecommend';
 import {MyTitle} from '../components/MyTitle';
 import {Comment} from '../components/Comment';
 import {OrderCell} from '../components/OrderCell';
+import {Shadow} from '../components/Shadow';
+import {Mask} from '../components/Mask';
 
 // 定义常量 路由
 const appRoutes: Routes = [
@@ -29,7 +33,6 @@ const appRoutes: Routes = [
   {path: 'myOrder', component: MyOrder},
   {path: 'show/:id', component: Show},
 ];
-
 
 
 @NgModule({
@@ -47,6 +50,8 @@ const appRoutes: Routes = [
     Show,
     Comment,
     OrderCell,
+    Shadow,
+    Mask
   ],
   // 引入组件
   imports: [
@@ -54,7 +59,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    StoreModule.provideStore({ show: showReducer })
+    StoreModule.provideStore({show: showReducer, shadow: shadowReducer, mask: maskReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

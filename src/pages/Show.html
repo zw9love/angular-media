@@ -1,4 +1,5 @@
 <section class="main">
+  <Mask></Mask>
   <p class="main_title">{{showData['title']}}</p>
   <!--订阅块-->
   <div class="main_order main_sp">
@@ -65,3 +66,59 @@
       <p>加载中...</p>
   </div> -->
 </section>
+<div class="show-shadow" [hidden]="!shadowActive"></div>
+
+<!--分享块-->
+<div class="comment_fixed share-fixed" [hidden]="!shareActive">
+  <div class="comment_fixed_hide" >
+    <div class="comment_fixed_contain">
+      <ol>
+        <li><img src="../assets/img/share_weibo.png" alt=""><br>
+          <span>新浪微博</span></li>
+        <li><img src="../assets/img/share_wechat.png" alt=""><br>
+          <span>微信好友</span></li>
+        <li><img src="../assets/img/share_friend.png" alt=""><br>
+          <span>朋友圈</span></li>
+      </ol>
+      <ol>
+        <li><img src="../assets/img/share_qq.png" alt=""><br>
+          <span>QQ</span></li>
+        <li><img src="../assets/img/share_zone.png" alt=""><br>
+          <span>QQ空间</span></li>
+        <li><img src="../assets/img/share_copy.png" alt=""><br>
+          <span>复制链接</span></li>
+      </ol>
+    </div>
+  </div>
+  <div class="cancle" (click)="cancel()">
+    <a href="javascript:;" id="cancel">取消</a>
+  </div>
+</div>
+
+<!--默认块-->
+<div class="comment_fixed" [hidden]="shareActive || textActive">
+  <ul>
+    <li><a href="javascript:;"><img src="../assets/img/back.png" alt="" class="back" (click)="goBack()"></a></li>
+    <li (click)="textClick()">
+      <div class="comment_txt">
+        <span></span>
+        <span>发表伟大言论...</span>
+      </div>
+    </li>
+    <li><a href="javascript:;" (click)="shareClick()"><img src="../assets/img/fix_share.png" alt="" id="share"></a></li>
+    <li *ngIf="!starActive"><a href="javascript:;" (click)="starClick()"><img src="../assets/img/star.png" alt=""></a></li>
+    <li *ngIf="starActive"><a href="javascript:;" (click)="starClick()"><img src="../assets/img/star_hover.png" alt="" ></a></li>
+    <li><a href="javascript:;" (click)="textClick()"><img src="../assets/img/fix_msg.png" alt="" ><span class="num">666</span></a></li>
+  </ul>
+
+</div>
+
+<div class="text" [hidden]="!textActive">
+  <div class="btn1">
+    <span><a href="javascript:;" (click)="cancelText()">取消</a></span>
+  </div>
+  <div class="btn2">
+    <span><a href="javascript:;" (click)="sureText()">发表</a></span>
+  </div>
+  <textarea id="txt" placeholder="我来说两句..." [(ngModel)]="myComment"></textarea>
+</div>

@@ -11,9 +11,16 @@ import { Location } from '@angular/common';
 export class MyTitle implements OnInit{
   @Input() title:string = ''
   @Input() active: boolean = false
+  @Input() parent: object
+  str = '编辑'
 
   goBack(){
     this.location.back();
+  }
+
+  edit(){
+    this.parent['editActive'] = !this.parent['editActive']
+    this.str = this.parent['editActive'] ?  '完成' : '编辑'
   }
 
   constructor(public route:ActivatedRoute, private router: Router,private location: Location){
@@ -21,6 +28,6 @@ export class MyTitle implements OnInit{
   }
 
   ngOnInit() {
-    // console.log(this.title)
+    // console.log(this.parent)
   }
 }

@@ -1,7 +1,10 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {Store} from '@ngrx/store';
 import Mock from 'mockjs'
 import $ from 'jquery'
 import {myScroll, unScroll} from '../tool/Scroll'
+
+interface AppState {}
 
 @Component({
   selector: 'MyLike',
@@ -12,14 +15,37 @@ import {myScroll, unScroll} from '../tool/Scroll'
 
 export class MyLike {
   title = '我的收藏'
-  editActive = true
+  titleEdit = true
+  editActive = false
   mainData = []
   lock = false
+  shadowActive = false
+  index = 0
+  quitTitle = '是否删除这条收藏？'
+
+  constructor(private store: Store<AppState>){}
+
+  // 给子组件传递this
+  sendSelf(){
+    return this
+  }
+
+  // 确定按钮
+  sureDelete(){
+    this.mainData.splice(this.index,1)
+  }
+
+  // 点击了左边-按钮
+  editClick(index){
+    this.index = index
+    let obj = this.store['source']['value']['shadow']
+    obj.shadowActive = true
+  }
 
   // 模拟数据（瀑布流）
   getData() {
     let data = Mock.mock({
-      'list|10': [{
+      'list|8': [{
         'id':'@id',
         'title': '@ctitle(6,50)',
         'author': '@cword(2,8)',

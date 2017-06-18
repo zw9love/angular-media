@@ -1,11 +1,9 @@
-import { ActionReducer, Action } from '@ngrx/store';
-
-export function showReducer(state = 0, action){
+export function shadowReducer(state = {}, action){
 
   let {type, value} = action
 
   switch (type) {
-    case 'setShowData':
+    case 'setShadow':
       state = value
       return state;
     default:

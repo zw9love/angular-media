@@ -5,8 +5,8 @@
     <span><a href="javascript:;">点击登录</a></span>
   </div>
   <ul>
-    <div *ngFor="let x of asideData">
-      <a href="javascript:;" [routerLink]="x.url">
+    <div *ngFor="let x of asideData;let i = index">
+      <a href="javascript:;" [routerLink]="x.url" (click)="asideClick(i)">
         <li>
           <img [src]="x.src" alt="">
           <span>{{x.name}}</span>
@@ -17,6 +17,8 @@
   </ul>
 </div>
 
+<!--退出shadow-->
+<Shadow [title]="quitTitle" [fn]="quitFn"></Shadow>
 
 <!--主要内容-->
 <div class="container" [ngClass]="{'go_contain':asideActive}" style="margin:0 auto">

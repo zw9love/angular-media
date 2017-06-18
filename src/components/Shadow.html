@@ -1,0 +1,9 @@
+<div class="shadow" [hidden]="!shadowActive" [ngStyle]="shadowStyle">
+  <div class="model">
+    <p>{{title}}</p>
+    <div>
+      <button class="cancel" (click)="cancel()">取消</button>
+      <button class="sure" (click)="sure()">确定</button>
+    </div>
+  </div>
+</div>

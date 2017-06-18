@@ -1,16 +1,25 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {Store} from '@ngrx/store';
+
+interface AppState {}
 
 @Component({
   selector: 'OrderCell',
   templateUrl: './OrderCell.html',
-  // styleUrls: ['../assets/css/style_orderCell.css']
+  styleUrls: ['../assets/css/style_orderCell.css']
 })
 
 export class OrderCell implements OnInit{
   @Input() orderActive: boolean = false
 
+
+  constructor(private store: Store<AppState>) {}
+
   orderClick(){
     this.orderActive = !this.orderActive
+    let mask = this.store['source']['value']['mask']
+    mask.msg = this.orderActive ? '已添加订阅' : '已取消订阅'
+    mask.toggleActive()
   }
 
   ngOnInit() {

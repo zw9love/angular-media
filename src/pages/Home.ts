@@ -1,7 +1,11 @@
 import {Component, EventEmitter, Input, Output, ElementRef, ViewChild, AfterViewInit, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
 import Mock from 'mockjs'
 import $ from 'jquery'
 import {myScroll, unScroll} from '../tool/Scroll'
+
+
+interface AppState {}
 
 @Component({
   selector: 'Home',
@@ -25,10 +29,10 @@ export class Home {
   asideActive = false
   timer = null
   asideStyle = {}
+  quitTitle = '确定要退出网页吗？'
 
-  constructor() {
 
-  }
+  constructor(private store: Store<AppState>) {}
 
   @ViewChild('smallCell')
   smallCellDiv: ElementRef;
@@ -41,6 +45,19 @@ export class Home {
     this.activeIndex = index
     this.mainData = []
     this.getData()
+  }
+
+  // 确定退出调用的回调方法
+  quitFn(){
+    console.log('已退出')
+  }
+
+  // 侧边栏退出点击事件
+  asideClick(index){
+    if(index == this.asideData.length - 1){
+      let obj = this.store['source']['value']['shadow']
+      obj.shadowActive = true
+    }
   }
 
   // 显示侧边栏
