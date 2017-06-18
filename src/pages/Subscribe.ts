@@ -10,14 +10,14 @@ interface AppState {
 }
 
 @Component({
-  selector: 'MyOrder',
-  templateUrl: 'MyOrder.html',
-  // 自动隔开作用域 相当于vue里面的scoped
-  styleUrls: ['../assets/css/style_orderlist.css','../assets/css/style_order.css']
+  selector: 'Subscribe',
+  templateUrl: './Subscribe.html',
+  // template: '<hero-form></hero-form>',
+  styleUrls: ['../assets/css/style_subscribe.css','../assets/css/style_order.css','../assets/css/style_titleSearch.css']
 })
 
-export class MyOrder {
-  title = '我的订阅'
+export class Subscribe {
+  specialStyle = {width:'calc(100% - 85px - 5.5rem)'}
   mainData = []
   lock = false
 
@@ -34,41 +34,36 @@ export class MyOrder {
     this.router.navigate(['orderShow',data.id])
   }
 
-  // 去订阅号列表
-  goSubscribe(){
-    this.router.navigate(['subscribe'])
-  }
-
-  // （瀑布流）
-  getData(){
+  getData() {
     let data = Mock.mock({
       'list|10': [{
-        'id':'@id',
-        'title': '@ctitle(6,150)',
-        'author': '@cword(2,8)',
-        'isOrder': '@boolean',
-        'src':'../assets/img/order.png',
-        'time':'@time("HH:mm")',
-        'num|0-99': 0,
+          'id':'@id',
+          'title': '@ctitle(6,150)',
+          'author': '@cword(2,8)',
+          'isOrder': '@boolean',
+          'src':'../assets/img/order.png',
+          'time':'@time("HH:mm")',
+          'num|0-99': 0,
       }],
     }).list
 
     this.mainData = this.mainData.concat(data)
 
+    // console.log(this.mainData)
     // 输出结果
     // console.log(JSON.stringify(this.mainData, null, 4))
 
     this.lock = false
+
   }
 
   ngOnInit(){
     this.getData()
     myScroll($, this, 100)
-    // console.log(this)
   }
 
-  //  当组件销毁的时候
   ngOnDestroy(){
     unScroll($)
   }
+
 }

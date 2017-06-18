@@ -1,0 +1,22 @@
+<div class="page_header">
+  <div class="back" (click)="goBack()">
+    <img src="../assets/img/back.png" alt="">
+  </div>
+  <img src="../assets/img/page.png" alt="">
+  <div class="order-cell">
+    <OrderCell [orderActive]="orderData.isOrder"></OrderCell>
+  </div>
+</div>
+
+<Mask></Mask>
+
+<div class="container">
+
+  <div class="page_explain">
+    <p class="page_title">{{orderData.author}}</p>
+    <p class="page_info">{{orderData.title}}</p>
+  </div>
+  <div class="line"></div>
+
+  <Recommend [data]="x" *ngFor="let x of mainData"></Recommend>
+</div>

@@ -1,6 +1,6 @@
 <MyTitle [title]="title" ></MyTitle>
 <div class="container">
-  <div class="add_container">
+  <div class="add_container" (click)="goSubscribe()">
     <a href="javascript:;">
       <div class="media_search">
         <div class="bottom"></div>
@@ -16,13 +16,14 @@
   </div>
   <div *ngFor="let x of mainData">
     <div class="main_order">
-      <a href="javascript:;"><img [src]="x.src" alt="">
+      <a href="javascript:;" (click)="goOrderShow(x)">
+        <img [src]="x.src" alt="">
         <span class="num">{{x.num}}</span>
       </a>
 
       <div class="main_order_info">
-        <p><a href="javascript:;">{{x.author}}</a></p>
-        <p>{{x.title}}</p>
+        <p (click)="goOrderShow(x)"><a href="javascript:;">{{x.author}}</a></p>
+        <p (click)="goOrderShow(x)">{{x.title}}</p>
       </div>
       <span id="time">{{x.time}}</span>
     </div>

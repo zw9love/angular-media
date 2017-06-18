@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output, ElementRef, ViewChild, AfterViewInit, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {Store} from '@ngrx/store';
 import Mock from 'mockjs'
 import $ from 'jquery'
@@ -32,12 +33,17 @@ export class Home {
   quitTitle = '确定要退出网页吗？'
 
 
-  constructor(private store: Store<AppState>) {}
+  constructor(public route: ActivatedRoute, private router: Router,private store: Store<AppState>) {}
 
   @ViewChild('smallCell')
   smallCellDiv: ElementRef;
   @ViewChild('bigCell')
   bigCellDiv: ElementRef;
+
+  // 去推荐搜索页面
+  goRecommendSearch(){
+    this.router.navigate(['recommendSearch'])
+  }
 
   // 一级菜单点击事件
   firstClick(index) {

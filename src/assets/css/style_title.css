@@ -21,10 +21,13 @@
 
 .back > img {
   width: 25px;
-  display: inline-block;
-  margin: 10px 0 0 0;
   padding-right: 10px;
   cursor: pointer;
+  position: absolute;
+  left:1.2rem;
+  top:50%;
+  transform:translateY(-50%);
+  -webkit-transform:translateY(-50%);
 }
 
 .page-title {

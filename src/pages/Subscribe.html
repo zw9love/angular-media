@@ -1,0 +1,18 @@
+<TitleSearch [placeholder]="'搜索尚阅号'"></TitleSearch>
+<div class="container">
+  <Mask></Mask>
+  <div class="order_container">
+    <div *ngFor="let x of mainData">
+      <div class="main_order">
+        <a href="javascript:;" (click)="goOrderShow(x)"><img [src]="x.src" alt=""></a>
+        <div class="main_order_info" [ngStyle]="specialStyle">
+          <p (click)="goOrderShow(x)"><a href="javascript:;">{{x.author}}</a></p>
+          <p (click)="goOrderShow(x)">简介：{{x.title}}</p>
+        </div>
+        <OrderCell [orderActive]="x.isOrder"></OrderCell>
+      </div>
+      <div class="line"></div>
+    </div>
+  </div>
+
+</div>
