@@ -40,6 +40,11 @@ export class Home {
   @ViewChild('bigCell')
   bigCellDiv: ElementRef;
 
+  // 去登录列表
+  goLoginList(){
+    this.router.navigate(['loginList'])
+  }
+
   // 去推荐搜索页面
   goRecommendSearch(){
     this.router.navigate(['recommendSearch'])

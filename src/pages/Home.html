@@ -1,8 +1,8 @@
 <!--侧边栏-->
 <div class="aside" [ngClass]="{'go_aside':asideActive}" [ngStyle]="asideStyle">
   <div class="login_head">
-    <a href="javascript:;"><img src="../assets/img/login.png" alt=""></a>
-    <span><a href="javascript:;">点击登录</a></span>
+    <a href="javascript:;"><img src="../assets/img/login.png" alt="" (click)="goLoginList()"></a>
+    <span (click)="goLoginList()"><a href="javascript:;">点击登录</a></span>
   </div>
   <ul>
     <div *ngFor="let x of asideData;let i = index">

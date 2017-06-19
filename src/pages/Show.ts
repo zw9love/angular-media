@@ -151,5 +151,7 @@ export class Show {
   // 当组件销毁的时候
   ngOnDestroy(){
     unScroll($)
+    let action ={type: 'setShow',value:null}
+    this.store.dispatch(action)
   }
 }

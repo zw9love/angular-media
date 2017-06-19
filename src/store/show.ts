@@ -1,5 +1,5 @@
 
-export function showReducer(state = {}, action){
+export function showReducer(state = null, action){
 
   let {type, value} = action
 

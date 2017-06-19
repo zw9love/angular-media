@@ -37,7 +37,9 @@ export class Comment implements OnInit {
 
   writeMessage(){
     let obj = this.store['source']['value']['show']
-    obj.textClick()
+    if(obj){
+      obj.textClick()
+    }
   }
 
 }
