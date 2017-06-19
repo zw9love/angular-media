@@ -25,6 +25,8 @@ export class Mask {
     clearTimeout(this.timer)
     this.timer = setTimeout(()=>{
       this.maskStyle = {display:'none'}
+      let action ={type: 'setMaskLock',value:false}
+      this.store.dispatch(action)
     },1000)
   }
 

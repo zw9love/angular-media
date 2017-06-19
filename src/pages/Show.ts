@@ -53,6 +53,11 @@ export class Show {
 
   // 点击收藏
   starClick(){
+    // 禁止连续点击
+    if(this.store['source']['value']['maskLock']) return
+    let action ={type: 'setMaskLock',value:true}
+    this.store.dispatch(action)
+
     this.starActive = !this.starActive
     let mask = this.store['source']['value']['mask']
     mask.msg = this.starActive ? '已添加收藏' : '已取消收藏'

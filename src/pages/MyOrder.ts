@@ -24,7 +24,7 @@ export class MyOrder {
   orderShow: object
 
   constructor(public route: ActivatedRoute, private router: Router, private store: Store<AppState>) {
-    this.orderShow = store.select('show');
+    // this.orderShow = store.select('show');
   }
 
   // 去订阅号详情

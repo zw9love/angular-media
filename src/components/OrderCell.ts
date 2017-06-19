@@ -16,6 +16,11 @@ export class OrderCell implements OnInit{
   constructor(private store: Store<AppState>) {}
 
   orderClick(){
+    // 禁止连续点击
+    if(this.store['source']['value']['maskLock']) return
+    let action ={type: 'setMaskLock',value:true}
+    this.store.dispatch(action)
+
     this.orderActive = !this.orderActive
     let mask = this.store['source']['value']['mask']
     mask.msg = this.orderActive ? '已添加订阅' : '已取消订阅'
