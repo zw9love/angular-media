@@ -5,11 +5,12 @@ import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from "@angular/router";
 // import {createStore} from 'redux';
 import {StoreModule} from '@ngrx/store';
-import {showReducer} from '../store/show';
+import {showDataReducer} from '../store/showData';
 import {shadowReducer} from '../store/shadow';
 import {maskReducer} from '../store/mask';
 import {orderShowReducer} from '../store/orderShow';
 import {maskLockReducer} from '../store/maskLock';
+import {showReducer} from '../store/show';
 
 import {AppComponent} from './app.component';
 import {Home} from '../pages/Home';
@@ -72,7 +73,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    StoreModule.provideStore({show: showReducer, shadow: shadowReducer, mask: maskReducer, orderShow: orderShowReducer, maskLock: maskLockReducer})
+    StoreModule.provideStore({show: showReducer, showData: showDataReducer, shadow: shadowReducer, mask: maskReducer, orderShow: orderShowReducer, maskLock: maskLockReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,11 @@
+import { ActionReducer, Action } from '@ngrx/store';
 
-export function showReducer(state = {}, action){
+export function showDataReducer(state = 0, action){
 
   let {type, value} = action
 
   switch (type) {
-    case 'setShow':
+    case 'setShowData':
       state = value
       return state;
     default:

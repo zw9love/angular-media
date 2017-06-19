@@ -1,5 +1,8 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {Store} from '@ngrx/store';
+
+interface AppState {}
 
 @Component({
   selector: 'Comment',
@@ -16,7 +19,7 @@ export class Comment implements OnInit {
     this.router.navigate(['']);
   }
 
-  constructor(public route: ActivatedRoute, private router: Router) {
+  constructor(public route: ActivatedRoute, private router: Router, private store: Store<AppState>) {
 
   }
 
@@ -30,6 +33,11 @@ export class Comment implements OnInit {
     this.renderData = this.data['data']
     this.length = 0
     // console.log(this.data['data'])
+  }
+
+  writeMessage(){
+    let obj = this.store['source']['value']['show']
+    obj.textClick()
   }
 
 }

@@ -108,7 +108,7 @@ export class Show {
   // 获取每个页面的showData
   getShowData(){
     // 讲道理，应该是根据show页面的id来拿数据的
-    this.showData = this.store['source']['value']['show']
+    this.showData = this.store['source']['value']['showData']
   }
 
   // 获取评论块数据（瀑布流）
@@ -144,7 +144,8 @@ export class Show {
     myScroll($, this, 30)
     // 每次组件加载完成，回到顶部
     $(window).scrollTop(0)
-    console.log(this.store['source']['value']['show'])
+    let action ={type: 'setShow',value:this}
+    this.store.dispatch(action)
   }
 
   // 当组件销毁的时候

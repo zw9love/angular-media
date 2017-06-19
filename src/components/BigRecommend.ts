@@ -22,10 +22,10 @@ export class BigRecommend  implements OnInit {
 
   }
 
-  showData: object;
+  // showData: object;
 
   constructor(public route:ActivatedRoute, private router: Router, private store: Store<AppState>){
-    this.showData = store.select('show');
+    // this.showData = store.select('showData');
   }
 
   jump(){
