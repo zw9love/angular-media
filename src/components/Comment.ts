@@ -35,10 +35,40 @@ export class Comment implements OnInit {
     // console.log(this.data['data'])
   }
 
+  addLike(){
+    this.data['like_num']++
+  }
+
   writeMessage(){
     let obj = this.store['source']['value']['show']
+    let action
+    if(this.length <= 5){
+      action = {type:'setCommentData',value:this.renderData}
+    }else{
+      action = {type:'setCommentData',value:this.data['data']}
+    }
+    this.store.dispatch(action)
+
     if(obj){
-      obj.textClick()
+      obj.commentCellClick()
+      console.log(action.value)
+    }
+  }
+
+  nameClick(msg){
+
+    let obj = this.store['source']['value']['show']
+    let action
+    if(this.length <= 5){
+      action = {type:'setCommentData',value:this.renderData}
+    }else{
+      action = {type:'setCommentData',value:this.data['data']}
+    }
+    this.store.dispatch(action)
+
+    obj.placeholder = `回复：${msg}`
+    if(obj){
+      obj.commentCellClick()
     }
   }
 

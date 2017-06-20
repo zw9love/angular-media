@@ -11,6 +11,7 @@ import {maskReducer} from '../store/mask';
 import {orderShowReducer} from '../store/orderShow';
 import {maskLockReducer} from '../store/maskLock';
 import {showReducer} from '../store/show';
+import {commentDataReducer} from '../store/commentData';
 
 // import {appRoutes} from '../route/index'
 
@@ -81,7 +82,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    StoreModule.provideStore({show: showReducer, showData: showDataReducer, shadow: shadowReducer, mask: maskReducer, orderShow: orderShowReducer, maskLock: maskLockReducer})
+    StoreModule.provideStore({show: showReducer, showData: showDataReducer, shadow: shadowReducer, mask: maskReducer, orderShow: orderShowReducer, maskLock: maskLockReducer,commentData: commentDataReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

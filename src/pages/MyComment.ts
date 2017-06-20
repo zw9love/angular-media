@@ -51,7 +51,7 @@ export class MyComment {
         'like_num|0-999': 0,
         'time|': '@integer(1, 24)' + '小时之前',
         // 评论的条数
-        'data|0-20': [{
+        'data|0-30': [{
           'name1': '@cname(0,4)',
           'name2': '@cname(0,4)',
           'info': '@ctitle(5,50)'

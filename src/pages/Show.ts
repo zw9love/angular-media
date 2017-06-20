@@ -26,7 +26,9 @@ export class Show {
   shadowActive = false
   textActive = false
   starActive = false
+  commentActive = false
   myComment = ''
+  placeholder = '我来说两句...'
 
   constructor(public route: ActivatedRoute, private router: Router, private store: Store<AppState>,private location: Location) {
 
@@ -64,9 +66,19 @@ export class Show {
     mask.toggleActive()
   }
 
-  // 点击发表评论
+  // 点击发表评论按钮
   textClick(){
     this.myComment = ''
+    this.placeholder = '我来说两句...'
+    this.commentActive = false
+    this.shadowActive = true
+    this.textActive = true
+  }
+
+  // 评论cell的msg按钮的点击事件
+  commentCellClick(){
+    this.myComment = ''
+    this.commentActive = true
     this.shadowActive = true
     this.textActive = true
   }
@@ -80,17 +92,33 @@ export class Show {
   // 确定发表
   sureText(){
     this.cancelText()
-    let data = {
-      'title': this.myComment,
-      'author': '旺仔小牛奶',
-      'msg_num': 0,
-      'like_num': 0,
-      'time': '刚刚',
-      // 评论的条数
-      'data': []
-    }
+    if(this.commentActive){
+      let arr = this.store['source']['value']['commentData']
+      let name = ''
+      if(this.placeholder.search('回复') != -1){
+        name = this.placeholder.slice(3)
+        // console.log(name)
+      }
 
-    this.mainData.push(data)
+      let data = {
+        'name1': '旺仔小牛奶',
+        'name2': name,
+        'info': this.myComment
+      }
+      arr.push(data)
+      console.log(arr)
+    }else {
+      let data = {
+        'title': this.myComment,
+        'author': '旺仔小牛奶',
+        'msg_num': 0,
+        'like_num': 0,
+        'time': '刚刚',
+        // 评论的条数
+        'data': []
+      }
+      this.mainData.push(data)
+    }
   }
 
   // 点击分享
@@ -121,7 +149,7 @@ export class Show {
         'like_num|0-999': 0,
         'time': '@integer(1, 24)' + '小时之前',
         // 评论的条数
-        'data|0-20': [{
+        'data|0-30': [{
           'name1': '@cname(0,4)',
           'name2': '@cname(0,4)',
           'info': '@ctitle(5,50)'

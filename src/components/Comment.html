@@ -7,31 +7,23 @@
     </div>
     <div class="main_comment">
       <div class="main_comment_contain">
-        <span>{{data.msg_num}}</span>
+        <span *ngIf="length <= 5">{{renderData.length}}</span>
+        <span *ngIf="length > 5">{{data.data.length}}</span>
         <img src="../assets/img/msg.png" alt="" (click)="writeMessage()">
       </div>
       <div class="main_comment_contain">
         <span>{{data.like_num}}</span>
-        <img src="../assets/img/like.png" alt="">
+        <img src="../assets/img/like.png" alt="" (click)="addLike()">
       </div>
     </div>
   </div>
   <div class="main_comment_msg">
     <div class="main_comment_owner">
       <p>{{data.title}}</p>
-      <div [hidden]="data.data.length == 0">
+      <div [hidden]="renderData.length == 0">
         <div class="line"></div>
         <div class="main_comment_other" >
-          <p *ngFor="let x of renderData;let i = index"><span class="main_comment_name"><a href="javascript:;">{{x.name1}} </a></span>回复<span class="main_comment_name"><a href="javascript:;"> {{x.name2}}:</a></span>{{x.info}}</p>
-
-          <!--<p><span class="main_comment_name"><a href="javascript:;">一点咨询网友:</a></span>-->
-            <!--这里都是游戏暗卫的名字还剩多少钱十年间耗时间节省时间。</p>-->
-          <!--<p><span class="main_comment_name"><a href="javascript:;">张小二 </a></span>回复<span class="main_comment_name"><a href="javascript:;"> 一点咨询网友:</a></span>-->
-            <!--京门京门回到家华盛顿</p>-->
-          <!--<p><span class="main_comment_name"><a href="javascript:;">青衫衣旧 </a></span>回复<span class="main_comment_name"><a href="javascript:;"> 一点咨询网友:</a></span>-->
-            <!--胡亥他哥就叫长安</p>-->
-          <!--<p><span class="main_comment_name"><a href="javascript:;">U49625589:</a></span>-->
-            <!--扶苏不死，大秦不亡</p>-->
+          <p *ngFor="let x of renderData;let i = index"><span class="main_comment_name"><a href="javascript:;" (click)="nameClick(x.name1)">{{x.name1}} </a></span><span *ngIf="x.name2">回复</span><span class="main_comment_name"><a href="javascript:;" (click)="nameClick(x.name2)"> {{x.name2}}:</a></span>{{x.info}}</p>
         </div>
         <p class="more" [hidden]="length <= 5" (click)="more()"><a href="javascript:;">展开更多回复</a></p>
         <div class="line"></div>
