@@ -27,6 +27,10 @@ import {Subscribe} from '../pages/Subscribe';
 import {OrderShow} from '../pages/OrderShow';
 import {LoginList} from '../pages/LoginList';
 import {PhoneLogin} from '../pages/PhoneLogin';
+import {OrderSearch} from '../children/OrderSearch';
+import {ReSearch} from '../children/ReSearch';
+
+
 import {Recommend} from '../components/Recommend';
 import {BigRecommend} from '../components/BigRecommend';
 import {MyTitle} from '../components/MyTitle';
@@ -35,10 +39,22 @@ import {OrderCell} from '../components/OrderCell';
 import {Shadow} from '../components/Shadow';
 import {Mask} from '../components/Mask';
 import {TitleSearch} from '../components/TitleSearch';
+import {MySearch} from '../components/MySearch';
+
+
+// 定义常量 嵌套自路由
+const appChildRoutes: Routes = [
+  {path: '', component: ReSearch},
+  {path: 'order', component: OrderSearch},
+  // 如果地址栏中输入没有定义的路由就跳转到one路由界面
+  // {
+  //   path: '**', redirectTo: "one"
+  // }
+]
 
 // 定义常量 路由
 const appRoutes: Routes = [
-  {path: '', component: Home},
+  {path: '', component: Home,children: appChildRoutes},
   {path: 'sugguest', component: Sugguestion},
   {path: 'myComment', component: MyComment},
   {path: 'myLike', component: MyLike},
@@ -74,7 +90,10 @@ const appRoutes: Routes = [
     RecommendSearch,
     OrderShow,
     LoginList,
-    PhoneLogin
+    PhoneLogin,
+    MySearch,
+    OrderSearch,
+    ReSearch
   ],
   // 引入组件
   imports: [

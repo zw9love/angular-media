@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Store} from '@ngrx/store';
 import Mock from 'mockjs'
@@ -30,9 +30,12 @@ export class Show {
   myComment = ''
   placeholder = '我来说两句...'
 
-  constructor(public route: ActivatedRoute, private router: Router, private store: Store<AppState>,private location: Location) {
+  constructor(private elementRef: ElementRef, public route: ActivatedRoute, private router: Router, private store: Store<AppState>,private location: Location) {
 
   }
+
+  @ViewChild('txt')
+  txt: ElementRef;
 
   // 获取推荐块数据
   getRecommendData() {
@@ -68,6 +71,8 @@ export class Show {
 
   // 点击发表评论按钮
   textClick(){
+    let txt = this.txt.nativeElement
+    txt.focus()
     this.myComment = ''
     this.placeholder = '我来说两句...'
     this.commentActive = false
@@ -106,7 +111,7 @@ export class Show {
         'info': this.myComment
       }
       arr.push(data)
-      console.log(arr)
+      // console.log(arr)
     }else {
       let data = {
         'title': this.myComment,

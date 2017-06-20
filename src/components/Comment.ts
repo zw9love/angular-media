@@ -12,6 +12,7 @@ interface AppState {}
 
 export class Comment implements OnInit {
   @Input() data: object
+  @Input() commentActive = false
   renderData = []
   length = 0
 
@@ -36,10 +37,12 @@ export class Comment implements OnInit {
   }
 
   addLike(){
+    if(!this.commentActive) return
     this.data['like_num']++
   }
 
   writeMessage(){
+    if(!this.commentActive) return
     let obj = this.store['source']['value']['show']
     let action
     if(this.length <= 5){
@@ -49,14 +52,12 @@ export class Comment implements OnInit {
     }
     this.store.dispatch(action)
 
-    if(obj){
-      obj.commentCellClick()
-      console.log(action.value)
-    }
+    obj.commentCellClick()
+      // console.log(action.value)
   }
 
   nameClick(msg){
-
+    if(!this.commentActive) return
     let obj = this.store['source']['value']['show']
     let action
     if(this.length <= 5){
@@ -65,11 +66,9 @@ export class Comment implements OnInit {
       action = {type:'setCommentData',value:this.data['data']}
     }
     this.store.dispatch(action)
-
     obj.placeholder = `回复：${msg}`
-    if(obj){
-      obj.commentCellClick()
-    }
+    obj.commentCellClick()
+
   }
 
 }

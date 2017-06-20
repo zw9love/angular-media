@@ -32,7 +32,7 @@
       <a href="javascript:;" (click)="showAside()"><img src="../assets/img/nav.png" alt="" ></a>
       <div class="media_header_info" id="wrapper">
         <ul id="scroller">
-          <li *ngFor="let x of data;let id = index" (click)="firstClick(id)">
+          <li *ngFor="let x of data;let id = index" (click)="firstClick(x,id)">
             <a href="javascript:;"  [ngClass]="{'current': activeIndex == id}">{{x.name}}</a>
           </li>
         </ul>
@@ -41,13 +41,15 @@
   </div>
 
   <!--二级导航-->
-  <div class="search_contain">
-    <div class="media_search" (click)="goRecommendSearch()">
-      <div></div>
-      <img src="../assets/img/search.png" alt="">
-      <span>&nbsp;搜索</span>
-    </div>
-  </div>
+  <!--<div class="search_contain">-->
+    <!--<div class="media_search" (click)="goRecommendSearch()">-->
+      <!--<div></div>-->
+      <!--<img src="../assets/img/search.png" alt="">-->
+      <!--<span>&nbsp;搜索</span>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <router-outlet></router-outlet>
 
   <!--内容块-->
   <section class="media_info">

@@ -46,13 +46,14 @@ export class Home {
   }
 
   // 去推荐搜索页面
-  goRecommendSearch(){
-    this.router.navigate(['recommendSearch'])
-  }
+  // goRecommendSearch(){
+  //   this.router.navigate(['recommendSearch'])
+  // }
 
   // 一级菜单点击事件
-  firstClick(index) {
+  firstClick(data, index) {
     if(this.activeIndex == index) return
+    index == 2 ? this.router.navigate(['order']) : this.router.navigate([''])
     this.activeIndex = index
     this.mainData = []
     this.getData()
@@ -143,9 +144,11 @@ export class Home {
 
     this.data = Mock.mock({
       'list|30': [{
-        'name':'@cword(2, 5)'
+        'name':'@cword(2, 5)',
       }],
     }).list
+
+    this.router.navigate([''])
 
     // console.log(JSON.stringify(this.data, null, 4))
   }

@@ -1,13 +1,13 @@
 <div class="container">
   <MyTitle [title]="title" ></MyTitle>
   <div class="sugguest_info" style="margin-top:20px;">
-    <textarea name="" id="" placeholder="请留下您的宝贵意见..."></textarea>
+    <textarea name="" id="" placeholder="请留下您的宝贵意见..." [(ngModel)]="sugguestMsg" (input)="sugguestChange()"></textarea>
   </div>
   <div class="sugguest_phone">
-    <input type="text" placeholder="联系方式：QQ、邮箱或手机" maxlength="11">
+    <input type="text" placeholder="联系方式：QQ、邮箱或手机" maxlength="11" [(ngModel)]="concatMsg" (input)="concatChange()">
   </div>
 
   <p class="staff">您的联系方式有助于我们沟通和解决问题，仅工作人员可见</p>
 
-  <button class="commit">提交</button>
+  <button class="commit" [ngClass]="{'hover':active}">提交</button>
 </div>

@@ -59,7 +59,7 @@
     热门评论
   </p>
   <div class="container" style="margin:0">
-    <Comment [data]="x" *ngFor="let x of mainData;let i = index"></Comment>
+    <Comment [data]="x" *ngFor="let x of mainData;let i = index"  [commentActive]="'true'"></Comment>
   </div>
 
   <!-- <div class="loading">
@@ -120,5 +120,5 @@
   <div class="btn2">
     <span><a href="javascript:;" (click)="sureText()">发表</a></span>
   </div>
-  <textarea id="txt" [placeholder]="placeholder" [(ngModel)]="myComment"></textarea>
+  <textarea id="txt" [placeholder]="placeholder" [(ngModel)]="myComment" #txt></textarea>
 </div>

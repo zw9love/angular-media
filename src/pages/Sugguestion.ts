@@ -9,4 +9,17 @@ import {Component, OnInit, Input} from '@angular/core';
 
 export class Sugguestion {
   title = '意见反馈'
+  sugguestMsg = ''
+  concatMsg = ''
+  active = false
+
+  sugguestChange(){
+    console.log(this.sugguestMsg)
+    console.log(this.concatMsg)
+  }
+
+  concatChange(){
+    console.log(this.sugguestMsg)
+    console.log(this.concatMsg)
+  }
 }

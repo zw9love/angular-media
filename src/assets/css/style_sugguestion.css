@@ -2,7 +2,7 @@
 
 .sugguest_info {
   width: 100%;
-  height: 15rem;
+  height: 150px;
   position: relative;
   padding: 20px;
   box-sizing: border-box;
@@ -22,7 +22,7 @@
 /*联系电话块样式*/
 
 .sugguest_phone {
-  height: 3rem;
+  height: 30px;
   margin-top: 1.5rem;
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -46,9 +46,9 @@
 button.commit {
   display: block;
   width: 100%;
-  height: 4rem;
-  font-size: 1.5rem;
-  line-height: 4rem;
+  height: 36px;
+  font-size: 1.2rem;
+  height: 36px;
   border: none;
   outline: none;
   background: #eeeeee;
