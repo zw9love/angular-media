@@ -34,12 +34,12 @@
   font-size: 1.4rem;
   line-height: 36px;
   border-radius: 2rem;
-  border: 1px solid #e92230;
-  color: #e92230;
+  border: 1px solid #666;
+  color: #999;
   float: right;
   box-sizing: border-box;
   text-align: center;
-  cursor: pointer;
+  cursor: auto;
 }
 
 /*登录选择块*/
@@ -111,9 +111,20 @@
   font-size: 1.5rem;
 }
 
-.login_sure a.hover {
-  background: #e92230;
-  color: #fff;
+/*.login_sure a.hover {*/
+  /*background: #e92230;*/
+  /*color: #fff;*/
+/*}*/
+
+.hover {
+  background: #e92230!important;
+  color: #fff!important;
+}
+
+.prov_hover{
+  border: 1px solid #e92230!important;
+  color: #e92230!important;
+  cursor: pointer!important;
 }
 
 /*阴影块样式*/

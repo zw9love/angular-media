@@ -13,13 +13,17 @@ export class Sugguestion {
   concatMsg = ''
   active = false
 
-  sugguestChange(){
-    console.log(this.sugguestMsg)
-    console.log(this.concatMsg)
+  // 正则验证
+  myCheck(){
+    let check1 = /^1[34578]\d{9}$/.test(this.concatMsg)
+    let check2 = /^[1-9][0-9]{4,9}$/.test(this.concatMsg)
+    let check3 = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(this.concatMsg)
+    let check = check1 || check2 || check3
+    if(this.sugguestMsg && check){
+      this.active = true
+    }else{
+      this.active = false
+    }
   }
 
-  concatChange(){
-    console.log(this.sugguestMsg)
-    console.log(this.concatMsg)
-  }
 }
