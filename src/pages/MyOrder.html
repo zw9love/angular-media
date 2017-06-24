@@ -1,4 +1,7 @@
 <MyTitle [title]="title" ></MyTitle>
+<div class="no_comment" *ngIf="mainData.length == 0">
+  <p>暂无收藏内容</p>
+</div>
 <div class="container">
   <div class="add_container" (click)="goSubscribe()">
     <a href="javascript:;">

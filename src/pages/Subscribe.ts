@@ -13,7 +13,7 @@ interface AppState {
   selector: 'Subscribe',
   templateUrl: './Subscribe.html',
   // template: '<hero-form></hero-form>',
-  styleUrls: ['../assets/css/style_subscribe.css','../assets/css/style_order.css','../assets/css/style_titleSearch.css']
+  styleUrls: ['../assets/css/style_subscribe.css','../assets/css/style_order.css']
 })
 
 export class Subscribe {
