@@ -11,19 +11,21 @@ import {Subscribe} from '../pages/Subscribe';
 import {OrderShow} from '../pages/OrderShow';
 import {LoginList} from '../pages/LoginList';
 import {PhoneLogin} from '../pages/PhoneLogin';
-import {Recommend} from '../components/Recommend';
-import {BigRecommend} from '../components/BigRecommend';
-import {MyTitle} from '../components/MyTitle';
-import {Comment} from '../components/Comment';
-import {OrderCell} from '../components/OrderCell';
-import {Shadow} from '../components/Shadow';
-import {Mask} from '../components/Mask';
-import {TitleSearch} from '../components/TitleSearch';
+import {OrderSearch} from '../components/OrderSearch';
+import {ReSearch} from '../components/ReSearch';
+import {IndustryNav} from '../components/IndustryNav';
 
+
+// 定义常量 嵌套自路由
+const appHomeChildRoutes  = [
+  {path: '', component: ReSearch},
+  {path: 'order', component: OrderSearch},
+  {path: 'industry', component: IndustryNav},
+]
 
 // 定义常量 路由
-export const appRoutes: Routes = [
-  {path: '', component: Home},
+export const appRoutes  = [
+  {path: '', component: Home,children: appHomeChildRoutes},
   {path: 'sugguest', component: Sugguestion},
   {path: 'myComment', component: MyComment},
   {path: 'myLike', component: MyLike},
@@ -34,5 +36,4 @@ export const appRoutes: Routes = [
   {path: 'orderShow/:id', component: OrderShow},
   {path: 'loginList', component: LoginList},
   {path: 'phoneLogin', component: PhoneLogin},
-]
-
+];

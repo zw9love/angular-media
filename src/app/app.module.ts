@@ -5,15 +5,9 @@ import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from "@angular/router";
 // import {createStore} from 'redux';
 import {StoreModule} from '@ngrx/store';
-import {showDataReducer} from '../store/showData';
-import {shadowReducer} from '../store/shadow';
-import {maskReducer} from '../store/mask';
-import {orderShowReducer} from '../store/orderShow';
-import {maskLockReducer} from '../store/maskLock';
-import {showReducer} from '../store/show';
-import {commentDataReducer} from '../store/commentData';
 
-// import {appRoutes} from '../route/index'
+import {store} from '../store/index';
+import {appRoutes} from '../route/index';
 
 import {AppComponent} from './app.component';
 import {Home} from '../pages/Home';
@@ -27,10 +21,9 @@ import {Subscribe} from '../pages/Subscribe';
 import {OrderShow} from '../pages/OrderShow';
 import {LoginList} from '../pages/LoginList';
 import {PhoneLogin} from '../pages/PhoneLogin';
-import {OrderSearch} from '../children/OrderSearch';
-import {ReSearch} from '../children/ReSearch';
-
-
+import {OrderSearch} from '../components/OrderSearch';
+import {ReSearch} from '../components/ReSearch';
+import {IndustryNav} from '../components/IndustryNav';
 import {Recommend} from '../components/Recommend';
 import {BigRecommend} from '../components/BigRecommend';
 import {MyTitle} from '../components/MyTitle';
@@ -41,31 +34,6 @@ import {Mask} from '../components/Mask';
 import {TitleSearch} from '../components/TitleSearch';
 import {MySearch} from '../components/MySearch';
 
-
-// 定义常量 嵌套自路由
-const appChildRoutes: Routes = [
-  {path: '', component: ReSearch},
-  {path: 'order', component: OrderSearch},
-  // 如果地址栏中输入没有定义的路由就跳转到one路由界面
-  // {
-  //   path: '**', redirectTo: "one"
-  // }
-]
-
-// 定义常量 路由
-const appRoutes: Routes = [
-  {path: '', component: Home,children: appChildRoutes},
-  {path: 'sugguest', component: Sugguestion},
-  {path: 'myComment', component: MyComment},
-  {path: 'myLike', component: MyLike},
-  {path: 'myOrder', component: MyOrder},
-  {path: 'show/:id', component: Show},
-  {path: 'subscribe', component: Subscribe},
-  {path: 'recommendSearch', component: RecommendSearch},
-  {path: 'orderShow/:id', component: OrderShow},
-  {path: 'loginList', component: LoginList},
-  {path: 'phoneLogin', component: PhoneLogin},
-];
 
 
 @NgModule({
@@ -93,7 +61,8 @@ const appRoutes: Routes = [
     PhoneLogin,
     MySearch,
     OrderSearch,
-    ReSearch
+    ReSearch,
+    IndustryNav
   ],
   // 引入组件
   imports: [
@@ -101,7 +70,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    StoreModule.provideStore({show: showReducer, showData: showDataReducer, shadow: shadowReducer, mask: maskReducer, orderShow: orderShowReducer, maskLock: maskLockReducer,commentData: commentDataReducer})
+    StoreModule.provideStore(store)
   ],
   providers: [],
   bootstrap: [AppComponent]

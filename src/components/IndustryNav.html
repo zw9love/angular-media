@@ -1,0 +1,9 @@
+<header class="media_header" style="padding-left: 0;border-bottom: 1px solid #e8e8e8;margin-top:50px">
+  <div class="media_header_info" id="wrapper" style="margin:0">
+    <ul id="scroller">
+      <li (click)="navClick(id)" *ngFor="let x of navData;let id = index">
+        <a href="javascript:;" [ngClass]="{'current': activeIndex == id}">{{x.name}}</a>
+      </li>
+    </ul>
+  </div>
+</header>

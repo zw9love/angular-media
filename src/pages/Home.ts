@@ -53,7 +53,16 @@ export class Home {
   // 一级菜单点击事件
   firstClick(data, index) {
     if(this.activeIndex == index) return
-    index == 2 ? this.router.navigate(['order']) : this.router.navigate([''])
+    switch(index){
+      case 1:
+        this.router.navigate(['industry'])
+        break
+      case 2:
+        this.router.navigate(['order'])
+        break
+      default:
+        this.router.navigate([''])
+    }
     this.activeIndex = index
     this.mainData = []
     this.getData()
@@ -149,6 +158,8 @@ export class Home {
     }).list
 
     this.router.navigate([''])
+    let action ={type: 'setHome',value:this}
+    this.store.dispatch(action)
 
     // console.log(JSON.stringify(this.data, null, 4))
   }
