@@ -51,7 +51,7 @@ export class Comment implements OnInit {
       action = {type:'setCommentData',value:this.data['data']}
     }
     this.store.dispatch(action)
-
+    obj.placeholder = '我来说两句...'
     obj.commentCellClick()
       // console.log(action.value)
   }
