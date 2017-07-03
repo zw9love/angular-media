@@ -21,7 +21,7 @@ export class Mask {
   }
 
   toggleActive(){
-    this.maskStyle = {zIndex:1,backgroundColor:'rgba(0,0,0,.5)'}
+    this.maskStyle = {backgroundColor:'rgba(0,0,0,.5)'}
     clearTimeout(this.timer)
     this.timer = setTimeout(()=>{
       this.maskStyle = {display:'none'}
