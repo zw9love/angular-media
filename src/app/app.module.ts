@@ -6,7 +6,7 @@ import {RouterModule, Routes} from "@angular/router";
 // import {createStore} from 'redux';
 import {StoreModule} from '@ngrx/store';
 
-import {store} from '../store/index';
+import store from '../store/index';
 import {appRoutes} from '../route/index';
 
 import {AppComponent} from './app.component';

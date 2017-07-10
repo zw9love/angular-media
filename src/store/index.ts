@@ -105,7 +105,7 @@ function showDataReducer(state = 0, action) {
   }
 }
 
-export let store = {
+const store = {
   show: showReducer,
   showData: showDataReducer,
   shadow: shadowReducer,
@@ -115,5 +115,7 @@ export let store = {
   commentData: commentDataReducer,
   home: homeReducer
 }
+
+export default store
 
 
