@@ -157,7 +157,7 @@ export class Home {
       }],
     }).list
 
-    this.router.navigate([''])
+    // this.router.navigate([''])
     let action ={type: 'setHome',value:this}
     this.store.dispatch(action)
 
