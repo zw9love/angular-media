@@ -153,6 +153,7 @@ export class Show {
   getData() {
     let data = Mock.mock({
       'list|5': [{
+        'id': '@id',
         'title': '@ctitle(5,100)',
         'author': '@cword(2,8)',
         'msg_num|0-999': 0,

@@ -74,4 +74,11 @@ export class Comment implements OnInit {
 
   }
 
+  goOrderShow(){
+    let action = {type: 'setOrderShow', value: this.data}
+    console.log(this.data)
+    this.store.dispatch(action)
+    this.router.navigate(['orderShow', this.data['id']])
+  }
+
 }

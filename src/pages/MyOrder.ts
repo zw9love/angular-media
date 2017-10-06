@@ -30,6 +30,7 @@ export class MyOrder {
   // 去订阅号详情
   goOrderShow(data) {
     let action = {type: 'setOrderShow', value: data}
+    console.log(data)
     this.store.dispatch(action)
     this.router.navigate(['orderShow', data.id])
   }
