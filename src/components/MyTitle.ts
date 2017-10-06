@@ -1,6 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'MyTitle',
@@ -8,22 +8,22 @@ import { Location } from '@angular/common';
   styleUrls: ['../assets/css/style_title.css']
 })
 
-export class MyTitle implements OnInit{
-  @Input() title:string = ''
+export class MyTitle implements OnInit {
+  @Input() title: string = ''
   @Input() active: boolean = false
   @Input() parent: object
   str = '编辑'
 
-  goBack(){
+  goBack() {
     this.location.back();
   }
 
-  edit(){
+  edit() {
     this.parent['editActive'] = !this.parent['editActive']
-    this.str = this.parent['editActive'] ?  '完成' : '编辑'
+    this.str = this.parent['editActive'] ? '完成' : '编辑'
   }
 
-  constructor(public route:ActivatedRoute, private router: Router,private location: Location){
+  constructor(public route: ActivatedRoute, private router: Router, private location: Location) {
 
   }
 

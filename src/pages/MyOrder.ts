@@ -13,7 +13,7 @@ interface AppState {
   selector: 'MyOrder',
   templateUrl: 'MyOrder.html',
   // 自动隔开作用域 相当于vue里面的scoped
-  styleUrls: ['../assets/css/style_orderlist.css','../assets/css/style_order.css']
+  styleUrls: ['../assets/css/style_orderlist.css', '../assets/css/style_order.css']
 })
 
 export class MyOrder {
@@ -28,27 +28,27 @@ export class MyOrder {
   }
 
   // 去订阅号详情
-  goOrderShow(data){
-    let action ={type: 'setOrderShow',value:data}
+  goOrderShow(data) {
+    let action = {type: 'setOrderShow', value: data}
     this.store.dispatch(action)
-    this.router.navigate(['orderShow',data.id])
+    this.router.navigate(['orderShow', data.id])
   }
 
   // 去订阅号列表
-  goSubscribe(){
+  goSubscribe() {
     this.router.navigate(['subscribe'])
   }
 
   // （瀑布流）
-  getData(){
+  getData() {
     let data = Mock.mock({
       'list|10': [{
-        'id':'@id',
+        'id': '@id',
         'title': '@ctitle(6,150)',
         'author': '@cword(2,8)',
         'isOrder': '@boolean',
-        'src':'../assets/img/order.png',
-        'time':'@time("HH:mm")',
+        'src': '../assets/img/order.png',
+        'time': '@time("HH:mm")',
         'num|0-99': 0,
       }],
     }).list
@@ -61,14 +61,14 @@ export class MyOrder {
     this.lock = false
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getData()
     myScroll($, this, 100)
     // console.log(this)
   }
 
   //  当组件销毁的时候
-  ngOnDestroy(){
+  ngOnDestroy() {
     unScroll($)
   }
 }

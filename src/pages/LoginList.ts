@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+
 @Component({
   selector: 'LoginList',
   templateUrl: './LoginList.html',
@@ -10,9 +11,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class LoginList {
   title = '选择登录方式'
 
-  constructor(public route: ActivatedRoute, private router: Router){}
+  constructor(public route: ActivatedRoute, private router: Router) {
+  }
 
-  goPhoneLogin(){
+  goPhoneLogin() {
     this.router.navigate(['phoneLogin'])
   }
 }

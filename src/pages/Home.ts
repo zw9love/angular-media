@@ -6,7 +6,8 @@ import $ from 'jquery'
 import {myScroll, unScroll} from '../tool/Scroll'
 
 
-interface AppState {}
+interface AppState {
+}
 
 @Component({
   selector: 'Home',
@@ -18,10 +19,10 @@ interface AppState {}
 export class Home {
   data = [];
   asideData = [
-    {src: '../assets/img/myorder.png', name: '我的订阅',url:'myOrder'},
-    {src: '../assets/img/star.png', name: '我的收藏',url:'myLike'},
-    {src: '../assets/img/fix_msg.png', name: '我的评论',url:'myComment'},
-    {src: '../assets/img/suggestion.png', name: '意见反馈',url:'sugguest'},
+    {src: '../assets/img/myorder.png', name: '我的订阅', url: 'myOrder'},
+    {src: '../assets/img/star.png', name: '我的收藏', url: 'myLike'},
+    {src: '../assets/img/fix_msg.png', name: '我的评论', url: 'myComment'},
+    {src: '../assets/img/suggestion.png', name: '意见反馈', url: 'sugguest'},
     {src: '../assets/img/quit.png', name: '退出'},
   ]
   activeIndex = 0;
@@ -33,7 +34,8 @@ export class Home {
   quitTitle = '确定要退出网页吗？'
 
 
-  constructor(public route: ActivatedRoute, private router: Router,private store: Store<AppState>) {}
+  constructor(public route: ActivatedRoute, private router: Router, private store: Store<AppState>) {
+  }
 
   @ViewChild('smallCell')
   smallCellDiv: ElementRef;
@@ -41,7 +43,7 @@ export class Home {
   bigCellDiv: ElementRef;
 
   // 去登录列表
-  goLoginList(){
+  goLoginList() {
     this.router.navigate(['loginList'])
   }
 
@@ -52,8 +54,8 @@ export class Home {
 
   // 一级菜单点击事件
   firstClick(data, index) {
-    if(this.activeIndex == index) return
-    switch(index){
+    if (this.activeIndex == index) return
+    switch (index) {
       case 1:
         this.router.navigate(['industry'])
         break
@@ -69,13 +71,13 @@ export class Home {
   }
 
   // 确定退出调用的回调方法
-  quitFn(){
+  quitFn() {
     console.log('已退出')
   }
 
   // 侧边栏退出点击事件
-  asideClick(index){
-    if(index == this.asideData.length - 1){
+  asideClick(index) {
+    if (index == this.asideData.length - 1) {
       let obj = this.store['source']['value']['shadow']
       obj.shadowActive = true
     }
@@ -106,18 +108,18 @@ export class Home {
       'list|3': [{
         'list|4': [
           {
-            'id':'@id',
+            'id': '@id',
             'title': '@ctitle(6,50)',
             'author': '@cword(2,8)',
             'msg_num|0-999': 0,
             'eye_num|0-999': 0,
             'isMovie': '@boolean',
             'isOrder': '@boolean',
-            'time':'@datetime("yyyy-MM-dd")',
-            'src':'../assets/img/order.png',
-            'infoData|1-5':[{
-              'info':'@cparagraph()',
-              'src':'../assets/img/show_'+ '@integer(1, 3)' +'.jpg'
+            'time': '@datetime("yyyy-MM-dd")',
+            'src': '../assets/img/order.png',
+            'infoData|1-5': [{
+              'info': '@cparagraph()',
+              'src': '../assets/img/show_' + '@integer(1, 3)' + '.jpg'
             }]
           },
         ]
@@ -153,19 +155,19 @@ export class Home {
 
     this.data = Mock.mock({
       'list|30': [{
-        'name':'@cword(2, 5)',
+        'name': '@cword(2, 5)',
       }],
     }).list
 
     // this.router.navigate([''])
-    let action ={type: 'setHome',value:this}
+    let action = {type: 'setHome', value: this}
     this.store.dispatch(action)
 
     // console.log(JSON.stringify(this.data, null, 4))
   }
 
   //  当组件销毁的时候
-  ngOnDestroy(){
+  ngOnDestroy() {
     $('body').removeClass('body')
     $('html').removeClass('html')
     unScroll($)

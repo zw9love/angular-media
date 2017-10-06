@@ -17,15 +17,15 @@ import {IndustryNav} from '../components/IndustryNav';
 
 
 // 定义常量 嵌套自路由
-const appHomeChildRoutes  = [
+const appHomeChildRoutes = [
   {path: '', component: ReSearch},
   {path: 'order', component: OrderSearch},
   {path: 'industry', component: IndustryNav},
 ]
 
 // 定义常量 路由
-export const appRoutes  = [
-  {path: '', component: Home,children: appHomeChildRoutes},
+export const appRoutes = [
+  {path: '', component: Home, children: appHomeChildRoutes},
   {path: 'sugguest', component: Sugguestion},
   {path: 'myComment', component: MyComment},
   {path: 'myLike', component: MyLike},

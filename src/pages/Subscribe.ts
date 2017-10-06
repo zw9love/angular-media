@@ -13,11 +13,11 @@ interface AppState {
   selector: 'Subscribe',
   templateUrl: './Subscribe.html',
   // template: '<hero-form></hero-form>',
-  styleUrls: ['../assets/css/style_subscribe.css','../assets/css/style_order.css']
+  styleUrls: ['../assets/css/style_subscribe.css', '../assets/css/style_order.css']
 })
 
 export class Subscribe {
-  specialStyle = {width:'calc(100% - 85px - 5.5rem)'}
+  specialStyle = {width: 'calc(100% - 85px - 5.5rem)'}
   mainData = []
   lock = false
 
@@ -28,22 +28,22 @@ export class Subscribe {
   }
 
   // 去订阅号详情
-  goOrderShow(data){
-    let action ={type: 'setOrderShow',value:data}
+  goOrderShow(data) {
+    let action = {type: 'setOrderShow', value: data}
     this.store.dispatch(action)
-    this.router.navigate(['orderShow',data.id])
+    this.router.navigate(['orderShow', data.id])
   }
 
   getData() {
     let data = Mock.mock({
       'list|10': [{
-          'id':'@id',
-          'title': '@ctitle(6,150)',
-          'author': '@cword(2,8)',
-          'isOrder': '@boolean',
-          'src':'../assets/img/order.png',
-          'time':'@time("HH:mm")',
-          'num|0-99': 0,
+        'id': '@id',
+        'title': '@ctitle(6,150)',
+        'author': '@cword(2,8)',
+        'isOrder': '@boolean',
+        'src': '../assets/img/order.png',
+        'time': '@time("HH:mm")',
+        'num|0-99': 0,
       }],
     }).list
 
@@ -57,12 +57,12 @@ export class Subscribe {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getData()
     myScroll($, this, 100)
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     unScroll($)
   }
 

@@ -15,18 +15,18 @@ export class RecommendSearch {
   getData() {
     let data = Mock.mock({
       'list|10': [{
-        'id':'@id',
+        'id': '@id',
         'title': '@ctitle(6,50)',
         'author': '@cword(2,8)',
         'msg_num|0-999': 0,
         'eye_num|0-999': 0,
         'isMovie': '@boolean',
         'isOrder': '@boolean',
-        'time':'@datetime("yyyy-MM-dd")',
-        'src':'../assets/img/order.png',
-        'infoData|1-5':[{
-          'info':'@cparagraph()',
-          'src':'../assets/img/show_'+ '@integer(1, 3)' +'.jpg'
+        'time': '@datetime("yyyy-MM-dd")',
+        'src': '../assets/img/order.png',
+        'infoData|1-5': [{
+          'info': '@cparagraph()',
+          'src': '../assets/img/show_' + '@integer(1, 3)' + '.jpg'
         }]
       }],
     }).list
@@ -41,12 +41,12 @@ export class RecommendSearch {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getData()
     myScroll($, this, 100)
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     unScroll($)
   }
 }

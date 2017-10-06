@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'TitleSearch',
@@ -8,18 +8,18 @@ import { Location } from '@angular/common';
   styleUrls: ['../assets/css/style_titleSearch.css']
 })
 
-export class TitleSearch implements OnInit{
-  @Input() placeholder:string = ''
+export class TitleSearch implements OnInit {
+  @Input() placeholder: string = ''
 
   ngOnInit() {
     // console.log(this.parent)
   }
 
-  constructor(private location: Location){
+  constructor(private location: Location) {
 
   }
 
-  goBack(){
+  goBack() {
     this.location.back();
   }
 }

@@ -11,10 +11,10 @@ interface AppState {
   selector: 'BigRecommend',
   templateUrl: 'BigRecommend.html',
   // 自动隔开作用域 相当于vue里面的scoped
-  styleUrls: ['../assets/css/style_bigRecommend.css','../assets/css/style_recommend.css']
+  styleUrls: ['../assets/css/style_bigRecommend.css', '../assets/css/style_recommend.css']
 })
 
-export class BigRecommend  implements OnInit {
+export class BigRecommend implements OnInit {
   @Input()
   data: object
 
@@ -24,13 +24,13 @@ export class BigRecommend  implements OnInit {
 
   // showData: object;
 
-  constructor(public route:ActivatedRoute, private router: Router, private store: Store<AppState>){
+  constructor(public route: ActivatedRoute, private router: Router, private store: Store<AppState>) {
     // this.showData = store.select('showData');
   }
 
-  jump(){
-    let action ={type: 'setShowData',value:this.data}
+  jump() {
+    let action = {type: 'setShowData', value: this.data}
     this.store.dispatch(action)
-    this.router.navigate(['show',this.data['id']])
+    this.router.navigate(['show', this.data['id']])
   }
 }

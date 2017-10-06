@@ -23,7 +23,7 @@ export class IndustryNav {
     // this.showData = store.select('showData');
   }
 
-  navClick(index){
+  navClick(index) {
     if (index == this.activeIndex) return
     this.activeIndex = index
     let data = Mock.mock({
@@ -62,7 +62,7 @@ export class IndustryNav {
     this.navData = data
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.renderNavData()
   }
 }

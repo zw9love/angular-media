@@ -4,7 +4,8 @@ import Mock from 'mockjs'
 import $ from 'jquery'
 import {myScroll, unScroll} from '../tool/Scroll'
 
-interface AppState {}
+interface AppState {
+}
 
 @Component({
   selector: 'MyComment',
@@ -23,19 +24,21 @@ export class MyComment {
   index = 0
   quitTitle = '是否删除这条评论？'
 
-  constructor(private store: Store<AppState>){}
+  constructor(private store: Store<AppState>) {
+  }
 
   // 给子组件传递this
-  sendSelf(){
+  sendSelf() {
     return this
   }
 
   // 确定按钮
-  sureDelete(){
-    this.mainData.splice(this.index,1)
+  sureDelete() {
+    this.mainData.splice(this.index, 1)
   }
+
   // 点击了左边-按钮
-  editClick(index){
+  editClick(index) {
     this.index = index
     let obj = this.store['source']['value']['shadow']
     obj.shadowActive = true
@@ -69,13 +72,13 @@ export class MyComment {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getData()
     myScroll($, this, 30)
   }
 
   //  当组件销毁的时候
-  ngOnDestroy(){
+  ngOnDestroy() {
     unScroll($)
   }
 }

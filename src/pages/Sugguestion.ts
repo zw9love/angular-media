@@ -14,14 +14,14 @@ export class Sugguestion {
   active = false
 
   // 正则验证
-  myCheck(){
+  myCheck() {
     let check1 = /^1[34578]\d{9}$/.test(this.concatMsg)
     let check2 = /^[1-9][0-9]{4,9}$/.test(this.concatMsg)
     let check3 = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(this.concatMsg)
     let check = check1 || check2 || check3
-    if(this.sugguestMsg && check){
+    if (this.sugguestMsg && check) {
       this.active = true
-    }else{
+    } else {
       this.active = false
     }
   }

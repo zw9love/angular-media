@@ -2,7 +2,8 @@ import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Store} from '@ngrx/store';
 
-interface AppState {}
+interface AppState {
+}
 
 @Component({
   selector: 'Comment',
@@ -15,6 +16,7 @@ export class Comment implements OnInit {
   @Input() commentActive = false
   renderData = []
   length = 0
+  addActive = false
 
   goBack() {
     this.router.navigate(['']);
@@ -36,34 +38,35 @@ export class Comment implements OnInit {
     // console.log(this.data['data'])
   }
 
-  addLike(){
-    if(!this.commentActive) return
+  addLike() {
+    if (!this.commentActive || this.addActive) return
     this.data['like_num']++
+    this.addActive = true
   }
 
-  writeMessage(){
-    if(!this.commentActive) return
+  writeMessage() {
+    if (!this.commentActive) return
     let obj = this.store['source']['value']['show']
     let action
-    if(this.length <= 5){
-      action = {type:'setCommentData',value:this.renderData}
-    }else{
-      action = {type:'setCommentData',value:this.data['data']}
+    if (this.length <= 5) {
+      action = {type: 'setCommentData', value: this.renderData}
+    } else {
+      action = {type: 'setCommentData', value: this.data['data']}
     }
     this.store.dispatch(action)
     obj.placeholder = '我来说两句...'
     obj.commentCellClick()
-      // console.log(action.value)
+    // console.log(action.value)
   }
 
-  nameClick(msg){
-    if(!this.commentActive) return
+  nameClick(msg) {
+    if (!this.commentActive) return
     let obj = this.store['source']['value']['show']
     let action
-    if(this.length <= 5){
-      action = {type:'setCommentData',value:this.renderData}
-    }else{
-      action = {type:'setCommentData',value:this.data['data']}
+    if (this.length <= 5) {
+      action = {type: 'setCommentData', value: this.renderData}
+    } else {
+      action = {type: 'setCommentData', value: this.data['data']}
     }
     this.store.dispatch(action)
     obj.placeholder = `回复：${msg}`

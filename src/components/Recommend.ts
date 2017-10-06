@@ -28,10 +28,16 @@ export class Recommend implements OnInit {
     // this.showData = store.select('showData');
   }
 
+  // 跳转详情页
   jump() {
-    let action ={type: 'setShowData',value:this.data}
+    let action = {type: 'setShowData', value: this.data}
     this.store.dispatch(action)
-    this.router.navigate(['show',this.data['id']])
-    // console.log(this.store['source']['value'])
+    // this.router.navigate(['show', this.data['id']])
+    let {show} = this.store['source']['value']
+    if (show) {
+      show.renderInit()
+    } else {
+      this.router.navigate(['show', this.data['id']])
+    }
   }
 }

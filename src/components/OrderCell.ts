@@ -1,7 +1,8 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Store} from '@ngrx/store';
 
-interface AppState {}
+interface AppState {
+}
 
 @Component({
   selector: 'OrderCell',
@@ -9,16 +10,17 @@ interface AppState {}
   styleUrls: ['../assets/css/style_orderCell.css']
 })
 
-export class OrderCell implements OnInit{
+export class OrderCell implements OnInit {
   @Input() orderActive: boolean = false
 
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>) {
+  }
 
-  orderClick(){
+  orderClick() {
     // 禁止连续点击
-    if(this.store['source']['value']['maskLock']) return
-    let action ={type: 'setMaskLock',value:true}
+    if (this.store['source']['value']['maskLock']) return
+    let action = {type: 'setMaskLock', value: true}
     this.store.dispatch(action)
 
     this.orderActive = !this.orderActive

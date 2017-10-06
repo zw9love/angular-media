@@ -1,8 +1,8 @@
-import {Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import {Component, OnInit, Input, ElementRef, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Store} from '@ngrx/store';
 import Mock from 'mockjs'
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 import $ from 'jquery'
 import {myScroll, unScroll} from '../tool/Scroll'
 
@@ -30,7 +30,7 @@ export class Show {
   myComment = ''
   placeholder = '我来说两句...'
 
-  constructor(private elementRef: ElementRef, public route: ActivatedRoute, private router: Router, private store: Store<AppState>,private location: Location) {
+  constructor(private elementRef: ElementRef, public route: ActivatedRoute, private router: Router, private store: Store<AppState>, private location: Location) {
 
   }
 
@@ -46,21 +46,25 @@ export class Show {
         'msg_num|0-999': 0,
         'eye_num|0-999': 0,
         'isMovie': '@boolean',
-        'id':'@id'
+        'id': '@id',
+        'infoData|1-5': [{
+          'info': '@cparagraph()',
+          'src': '../assets/img/show_' + '@integer(1, 3)' + '.jpg'
+        }]
       }],
     }).list
   }
 
   // 点击返回
-  goBack(){
+  goBack() {
     this.location.back();
   }
 
   // 点击收藏
-  starClick(){
+  starClick() {
     // 禁止连续点击
-    if(this.store['source']['value']['maskLock']) return
-    let action ={type: 'setMaskLock',value:true}
+    if (this.store['source']['value']['maskLock']) return
+    let action = {type: 'setMaskLock', value: true}
     this.store.dispatch(action)
 
     this.starActive = !this.starActive
@@ -70,7 +74,7 @@ export class Show {
   }
 
   // 点击发表评论按钮
-  textClick(){
+  textClick() {
     let txt = this.txt.nativeElement
     txt.focus()
     this.myComment = ''
@@ -81,7 +85,7 @@ export class Show {
   }
 
   // 评论cell的msg按钮的点击事件
-  commentCellClick(){
+  commentCellClick() {
     this.myComment = ''
     this.commentActive = true
     this.shadowActive = true
@@ -89,18 +93,18 @@ export class Show {
   }
 
   // 取消发表
-  cancelText(){
+  cancelText() {
     this.shadowActive = false
     this.textActive = false
   }
 
   // 确定发表
-  sureText(){
+  sureText() {
     this.cancelText()
-    if(this.commentActive){
+    if (this.commentActive) {
       let arr = this.store['source']['value']['commentData']
       let name = ''
-      if(this.placeholder.search('回复') != -1){
+      if (this.placeholder.search('回复') != -1) {
         name = this.placeholder.slice(3)
         // console.log(name)
       }
@@ -112,7 +116,7 @@ export class Show {
       }
       arr.push(data)
       // console.log(arr)
-    }else {
+    } else {
       let data = {
         'title': this.myComment,
         'author': '旺仔小牛奶',
@@ -127,21 +131,22 @@ export class Show {
   }
 
   // 点击分享
-  shareClick(){
+  shareClick() {
     this.shadowActive = true
     this.shareActive = true
   }
 
   // 取消分享
-  cancel(){
+  cancel() {
     this.shadowActive = false
     this.shareActive = false
   }
 
   // 获取每个页面的showData
-  getShowData(){
+  getShowData() {
     // 讲道理，应该是根据show页面的id来拿数据的
     this.showData = this.store['source']['value']['showData']
+    // console.log(this.showData)
   }
 
   // 获取评论块数据（瀑布流）
@@ -169,22 +174,31 @@ export class Show {
     // console.log(JSON.stringify(this.commentData, null, 4))
   }
 
-  // 组件数据加载完毕
-  ngOnInit() {
+  renderInit() {
+    // console.log('进入了详情页111')
     this.getRecommendData()
     this.getData()
     this.getShowData()
     myScroll($, this, 30)
     // 每次组件加载完成，回到顶部
     $(window).scrollTop(0)
-    let action ={type: 'setShow',value:this}
+    let action = {type: 'setShow', value: this}
     this.store.dispatch(action)
   }
 
+  // 组件数据加载完毕
+  ngOnInit() {
+    this.renderInit()
+  }
+
+  ngOnChanges() {
+    console.log('数据改变了')
+  }
+
   // 当组件销毁的时候
-  ngOnDestroy(){
+  ngOnDestroy() {
     unScroll($)
-    let action ={type: 'setShow',value:null}
+    let action = {type: 'setShow', value: null}
     this.store.dispatch(action)
   }
 }

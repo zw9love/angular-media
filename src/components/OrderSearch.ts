@@ -2,7 +2,8 @@ import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'OrderSearch',
-  template: `<MySearch [title]="title" [url]="url"></MySearch>`
+  template: `
+    <MySearch [title]="title" [url]="url"></MySearch>`
 })
 
 export class OrderSearch {

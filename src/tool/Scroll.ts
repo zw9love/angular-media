@@ -1,6 +1,4 @@
-
-
-export function myScroll($, obj, num){
+export function myScroll($, obj, num) {
   $(window).on('scroll', () => {
     var sumHeight = $(document).height();
     var clientHeight = $(window).height();
@@ -14,6 +12,6 @@ export function myScroll($, obj, num){
   })
 }
 
-export function unScroll($){
+export function unScroll($) {
   $(window).off()
 }

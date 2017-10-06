@@ -1,6 +1,4 @@
 
-
-
 .contain_shadow {
   position: absolute;
   left: 0;
@@ -14,20 +12,17 @@
   opacity: 0;
 }
 
-
-
 /*主页头部公共样式*/
-
 
 .header_contain {
   border-bottom: 1px solid #e8e8e8;
-  position:fixed;
-  left:50%;
-  top:0;
-  transform:translateX(-50%);
-  -webkit-transform:translateX(-50%);
-  width:100%;
-  max-width:600px;
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px;
   background: #fff;
   z-index: 1;
   padding: 0 1.2rem;
@@ -55,7 +50,7 @@ header.media_header > a {
 
 header.media_header > a > img {
   vertical-align: middle;
-  width:22px;
+  width: 22px;
 }
 
 header.media_header .media_header_info {
@@ -69,14 +64,17 @@ header.media_header .media_header_info {
 header.media_header .media_header_info ul {
   position: relative;
   overflow: hidden;
-  width: 5000px;
+  overflow-x: scroll;
+  white-space:nowrap;
+  /*width: 5000px;*/
 }
 
 header.media_header .media_header_info ul li {
-  float: left;
+  /*float: left;*/
   margin-right: 1.65rem;
   display: inline-block;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 header.media_header .media_header_info ul li a {
@@ -92,7 +90,6 @@ header.media_header .media_header_info ul li a {
   margin-top: 1.5rem;
   box-sizing: border-box;
 }
-
 
 /*侧边栏*/
 
@@ -130,11 +127,11 @@ header.media_header .media_header_info ul li a {
   transition: all 0.8s ease 0s;
   -webkit-transition: all 0.8s ease 0s;
   opacity: 0;
-  z-index:0;
+  z-index: 0;
 }
 
 /*.aside > a {*/
-  /*display: inline-block;*/
+/*display: inline-block;*/
 /*}*/
 
 /*侧边栏ul块*/

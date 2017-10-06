@@ -8,18 +8,17 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['../assets/css/style_search.css']
 })
 
-export class MySearch implements OnInit{
-  @Input() title:string = ''
-  @Input() url:string = ''
+export class MySearch implements OnInit {
+  @Input() title: string = ''
+  @Input() url: string = ''
 
 
-  goLocation(){
+  goLocation() {
     this.router.navigate([this.url])
   }
 
 
-
-  constructor(public route:ActivatedRoute, private router: Router){
+  constructor(public route: ActivatedRoute, private router: Router) {
 
   }
 
